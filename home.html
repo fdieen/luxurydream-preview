@@ -1,0 +1,2056 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxury Dream | Luxe Beddengoed van Egyptisch Katoen — Handgemaakt in Portugal</title>
+<meta name="description" content="Ontdek Luxury Dream: luxe beddengoed, kussens en nachtkastjes van 600 TC Egyptisch katoen. Handgemaakt in Portugal. Biologisch, natuurlijk en OEKO-TEX® gecertificeerd. Gratis verzending.">
+<meta name="keywords" content="luxe beddengoed, Egyptisch katoen beddengoed, handgemaakt beddengoed Portugal, biologisch beddengoed, natuurlijk beddengoed, premium kussens, luxe nachtkastjes, hotelkwaliteit beddengoed, 600 TC beddengoed, OEKO-TEX beddengoed">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Luxury Dream | Luxe Beddengoed van Egyptisch Katoen">
+<meta property="og:description" content="Handgemaakt beddengoed van 600 TC Egyptisch katoen. Ervaar elke nacht als een 5 sterren ervaring.">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Luxury Dream",
+  "description": "Luxury Dream maakt handgemaakt luxe beddengoed, kussens en nachtkastjes van biologisch Egyptisch katoen in Portugal.",
+  "url": "",
+  "sameAs": [],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "availableLanguage": "Dutch"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Luxury Dream",
+  "description": "Luxe beddengoed, kussens en nachtkastjes van 600 TC Egyptisch katoen. Handgemaakt in Portugal.",
+  "inLanguage": "nl-NL"
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --gold:  #C9A84C;
+  --cream: #F8F4EE;
+  --brown: #2C1810;
+  --muted: #8A7560;
+  --line:  rgba(201,168,76,.15);
+}
+html { scroll-behavior:smooth; }
+body { font-family:'Montserrat',sans-serif; background:var(--cream); color:var(--brown); overflow-x:hidden; }
+
+
+/* ══════════════════════════════
+   NAV
+══════════════════════════════ */
+nav {
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 54px;
+  height:76px;
+  background:rgba(248,244,238,.0);
+  backdrop-filter:blur(0px);
+  transition:background .5s ease, backdrop-filter .5s ease, border-color .5s ease;
+  border-bottom:1px solid transparent;
+}
+nav.scrolled {
+  background:rgba(248,244,238,.95);
+  backdrop-filter:blur(14px);
+  border-bottom-color:var(--line);
+}
+.nav-logo {
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:300;letter-spacing:8px;
+  color:#f8f4ee;text-decoration:none;text-transform:uppercase;
+  transition:color .5s ease;
+}
+nav.scrolled .nav-logo { color:var(--brown); }
+.nav-links { display:flex;gap:34px;list-style:none; }
+.nav-links a {
+  font-size:9px;font-weight:500;letter-spacing:3px;
+  color:rgba(248,244,238,.75);text-transform:uppercase;text-decoration:none;
+  transition:color .3s;
+}
+nav.scrolled .nav-links a { color:var(--muted); }
+.nav-links a:hover { color:var(--gold); }
+.nav-right { display:flex;gap:22px;align-items:center; }
+.nav-icon {
+  font-size:9px;letter-spacing:2px;
+  color:rgba(248,244,238,.6);cursor:pointer;transition:color .3s;text-decoration:none;
+}
+nav.scrolled .nav-icon { color:var(--muted); }
+.nav-icon:hover { color:var(--gold); }
+.nav-actions { display:flex;align-items:center;gap:4px; }
+#navCartBtn {
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+  width:40px;height:40px;
+  color:rgba(248,244,238,.8);
+  text-decoration:none;
+  transition:color .3s,transform .2s;
+  flex-shrink:0;
+}
+nav.scrolled #navCartBtn { color:var(--gold); }
+#navCartBtn:hover { color:var(--gold) !important;transform:scale(1.1); }
+#navCartBtn svg { width:22px;height:22px;display:block; }
+.cart-nav-badge {
+  position:absolute;top:4px;right:3px;
+  background:var(--gold);color:#fff;
+  font-size:8px;font-weight:700;letter-spacing:0;
+  min-width:16px;height:16px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  padding:0 3px;
+  font-family:'Montserrat',sans-serif;
+  line-height:1;
+  border:1.5px solid rgba(44,24,16,.6);
+  pointer-events:none;
+}
+
+/* ══════════════════════════════
+   HERO
+══════════════════════════════ */
+.hero {
+  height:100vh;min-height:600px;
+  position:relative;overflow:hidden;
+  /* Fallback: nooit leeg */
+  background-image:url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1920&q=85');
+  background-size:cover;background-position:center;
+}
+
+/* Slideshow — één slide tegelijk zichtbaar, hero-bg is altijd de huidige foto */
+.hero-slide {
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  opacity:0;
+  z-index:1;
+  transition:none;
+}
+
+/* Actieve slide fadt IN; fadt nooit uit (JS verbergt hem meteen via inline style) */
+.hero-slide.active {
+  opacity:1;
+  z-index:2;
+  transition:opacity 1.4s ease;
+  animation:kbHero 9s ease forwards;
+}
+
+.hero-slide-1 { background-image:url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1920&q=85'); }
+.hero-slide-2 { background-image:url('https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=1920&q=85'); }
+.hero-slide-3 { background-image:url('https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=1920&q=85'); background-position:center 40%; }
+
+@keyframes kbHero {
+  from { transform:scale(1.07); }
+  to   { transform:scale(1.00); }
+}
+
+/* Overlay */
+.hero-overlay {
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 85% 70% at 50% 50%, rgba(0,0,0,.18) 0%, rgba(0,0,0,.68) 100%),
+    linear-gradient(to bottom, rgba(0,0,0,.2) 0%, transparent 35%, transparent 60%, rgba(0,0,0,.45) 100%);
+  backdrop-filter:blur(3px);
+  z-index:2;
+}
+
+/* Hero content */
+.hero-content {
+  position:absolute;inset:0;z-index:3;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;padding:0 40px;
+}
+.hero-eyebrow {
+  font-size:9px;letter-spacing:7px;
+  color:rgba(201,168,76,.85);text-transform:uppercase;
+  font-family:'Montserrat',sans-serif;
+  margin-bottom:28px;
+  opacity:0;animation:fadeUp .55s cubic-bezier(.22,1,.36,1) .1s forwards;
+}
+.hero-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(52px,8.5vw,120px);
+  font-weight:300;color:#f8f4ee;
+  line-height:1.04;letter-spacing:1px;
+  margin-bottom:28px;
+  opacity:0;animation:fadeUp .65s cubic-bezier(.22,1,.36,1) .3s forwards;
+}
+.hero-title em { font-style:italic;color:#e8c870; }
+.hero-sub {
+  font-size:11px;letter-spacing:4px;
+  color:rgba(248,244,238,.45);text-transform:uppercase;
+  margin-bottom:44px;
+  opacity:0;animation:fadeUp .55s cubic-bezier(.22,1,.36,1) .55s forwards;
+}
+.hero-cta {
+  display:flex;gap:14px;
+  opacity:0;animation:fadeUp .55s cubic-bezier(.22,1,.36,1) .75s forwards;
+}
+.btn-gold {
+  background:var(--gold);color:var(--brown);
+  font-size:9px;letter-spacing:4px;font-weight:600;text-transform:uppercase;
+  padding:16px 46px;border:none;cursor:pointer;font-family:'Montserrat',sans-serif;
+  transition:all .3s;
+}
+.btn-gold:hover { background:#d9b84e;transform:translateY(-2px); }
+.btn-ghost {
+  background:transparent;color:#f8f4ee;
+  font-size:9px;letter-spacing:4px;font-weight:400;text-transform:uppercase;
+  padding:15px 46px;border:1px solid rgba(255,255,255,.25);
+  cursor:pointer;font-family:'Montserrat',sans-serif;transition:all .3s;
+}
+.btn-ghost:hover { border-color:var(--gold);color:var(--gold); }
+
+/* Slide dots */
+.hero-dots {
+  position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
+  z-index:4;display:flex;gap:8px;
+  opacity:0;animation:fadeIn .5s ease .9s forwards;
+}
+.dot {
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(255,255,255,.3);cursor:pointer;
+  transition:background .3s,transform .3s;
+}
+.dot.active { background:var(--gold);transform:scale(1.2); }
+
+/* Scroll arrow */
+.scroll-arrow {
+  position:absolute;bottom:34px;right:54px;z-index:4;
+  display:flex;flex-direction:column;align-items:center;gap:7px;
+  opacity:0;animation:fadeIn .5s ease 1.0s forwards;cursor:pointer;
+}
+.scroll-arrow span { font-size:7px;letter-spacing:4px;color:rgba(255,255,255,.3);text-transform:uppercase; }
+.arrow-line { width:1px;height:38px;background:linear-gradient(to bottom,rgba(201,168,76,.6),transparent);animation:arrowAnim 2s ease-in-out 1.4s infinite; }
+@keyframes arrowAnim {
+  0%,100%{opacity:.3;transform:scaleY(.5);transform-origin:top;}
+  50%{opacity:1;transform:scaleY(1);}
+}
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);} }
+@keyframes fadeIn { to{opacity:1;} }
+
+/* ══════════════════════════════
+   MARQUEE STRIP
+══════════════════════════════ */
+.marquee-strip {
+  background:var(--brown);
+  padding:16px 0;
+  overflow:hidden;
+  border-top:1px solid rgba(201,168,76,.1);
+}
+.marquee-track {
+  display:flex;gap:0;
+  animation:marquee 60s linear infinite;
+  width:max-content;
+}
+.marquee-track:hover { animation-play-state:paused; }
+.marquee-item {
+  display:flex;align-items:center;gap:18px;
+  padding:0 32px;
+  font-size:8px;letter-spacing:4px;color:rgba(248,244,238,.45);
+  text-transform:uppercase;font-family:'Montserrat',sans-serif;
+  white-space:nowrap;
+}
+.marquee-dot { width:3px;height:3px;border-radius:50%;background:var(--gold);opacity:.6; }
+@keyframes marquee { from{transform:translateX(0);}to{transform:translateX(-50%);} }
+
+/* ══════════════════════════════
+   SECTION UTILS
+══════════════════════════════ */
+.section-eyebrow {
+  font-size:8px;letter-spacing:6px;color:var(--gold);
+  text-transform:uppercase;font-family:'Montserrat',sans-serif;
+  display:block;margin-bottom:16px;
+}
+.section-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(34px,5vw,62px);font-weight:300;
+  color:var(--brown);line-height:1.15;
+}
+.section-title em { font-style:italic;color:var(--gold); }
+.section-title-light { color:#f8f4ee; }
+.section-title-light em { color:#e8c870; }
+.gold-line { width:40px;height:1px;background:var(--gold);margin:24px 0; }
+
+/* Reveal animaties */
+.reveal {
+  opacity:0;transform:translateY(32px);
+  transition:opacity .9s ease,transform .9s ease;
+}
+.reveal.visible { opacity:1;transform:translateY(0); }
+.reveal-left {
+  opacity:0;transform:translateX(-32px);
+  transition:opacity 1s ease,transform 1s ease;
+}
+.reveal-left.visible { opacity:1;transform:translateX(0); }
+.reveal-right {
+  opacity:0;transform:translateX(32px);
+  transition:opacity 1s ease,transform 1s ease;
+}
+.reveal-right.visible { opacity:1;transform:translateX(0); }
+.d1{transition-delay:.08s;} .d2{transition-delay:.18s;} .d3{transition-delay:.28s;} .d4{transition-delay:.38s;}
+
+/* ══════════════════════════════
+   COLLECTIONS GRID
+══════════════════════════════ */
+.collections-section {
+  padding:90px 54px;
+  background:var(--cream);
+}
+.collections-header {
+  display:flex;justify-content:space-between;align-items:flex-end;
+  margin-bottom:52px;
+}
+.collections-header a {
+  font-size:9px;letter-spacing:3px;color:var(--muted);
+  text-decoration:none;text-transform:uppercase;
+  border-bottom:1px solid var(--line);padding-bottom:2px;
+  transition:color .3s,border-color .3s;
+}
+.collections-header a:hover { color:var(--gold);border-color:var(--gold); }
+
+.collections-grid {
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr;
+  gap:16px;
+  height:600px;
+}
+.col-card {
+  position:relative;overflow:hidden;cursor:pointer;
+}
+.col-photo {
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  transition:transform .9s cubic-bezier(.16,1,.3,1);
+}
+.col-card:hover .col-photo { transform:scale(1.06); }
+.col-overlay {
+  position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(44,24,16,.82) 0%, rgba(44,24,16,.15) 55%, transparent 100%);
+  transition:background .4s ease;
+}
+.col-card:hover .col-overlay { background:linear-gradient(to top, rgba(44,24,16,.9) 0%, rgba(44,24,16,.3) 55%, transparent 100%); }
+.col-info {
+  position:absolute;bottom:0;left:0;right:0;
+  padding:32px;
+}
+.col-eyebrow {
+  font-size:8px;letter-spacing:4px;color:rgba(201,168,76,.8);
+  text-transform:uppercase;font-family:'Montserrat',sans-serif;
+  display:block;margin-bottom:8px;
+}
+.col-name {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(24px,3vw,38px);font-weight:300;
+  color:#f8f4ee;line-height:1.1;margin-bottom:14px;
+}
+.col-link {
+  font-size:8px;letter-spacing:3px;color:rgba(248,244,238,.0);
+  text-transform:uppercase;font-family:'Montserrat',sans-serif;
+  transition:color .4s ease;display:flex;align-items:center;gap:8px;
+}
+.col-link::after { content:'→';transition:transform .3s ease; }
+.col-card:hover .col-link { color:rgba(248,244,238,.7); }
+.col-card:hover .col-link::after { transform:translateX(4px); }
+
+/* ══════════════════════════════
+   BRAND STORY
+══════════════════════════════ */
+.story-section {
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:70vh;
+}
+.story-photo {
+  position:relative;overflow:hidden;
+}
+.story-photo-bg {
+  position:absolute;inset:0;
+  background-image:url('https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=900&q=85');
+  background-size:cover;background-position:center 30%;
+  transition:transform 10s ease;
+}
+.story-section:hover .story-photo-bg { transform:scale(1.04); }
+.story-content {
+  background:var(--brown);
+  padding:90px 70px;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.story-quote {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(22px,3.5vw,38px);font-weight:300;font-style:italic;
+  color:rgba(248,244,238,.85);line-height:1.5;
+  margin-bottom:36px;
+}
+.story-quote::before { content:'"'; }
+.story-quote::after  { content:'"'; }
+.story-body {
+  font-size:12px;color:rgba(248,244,238,.45);
+  line-height:2;margin-bottom:40px;max-width:400px;
+}
+.btn-cream {
+  background:none;color:var(--cream);
+  font-size:9px;letter-spacing:4px;font-weight:500;text-transform:uppercase;
+  padding:14px 36px;border:1px solid rgba(248,244,238,.2);
+  cursor:pointer;font-family:'Montserrat',sans-serif;
+  transition:all .3s;align-self:flex-start;
+}
+.btn-cream:hover { background:var(--cream);color:var(--brown); }
+
+/* ══════════════════════════════
+   KWALITEIT PILLARS
+══════════════════════════════ */
+.quality-section {
+  padding:90px 54px;
+  background:#FDFAF6;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.quality-header { text-align:center;margin-bottom:64px; }
+.quality-grid {
+  display:grid;grid-template-columns:repeat(4,1fr);gap:2px;
+}
+.quality-card {
+  padding:50px 36px;
+  background:#fff;
+  text-align:center;
+  border:1px solid var(--line);
+  transition:border-color .3s,box-shadow .3s;
+}
+.quality-card:hover {
+  border-color:rgba(201,168,76,.4);
+  box-shadow:0 8px 40px rgba(44,24,16,.06);
+}
+.quality-num {
+  font-family:'Cormorant Garamond',serif;
+  font-size:52px;font-weight:300;color:var(--gold);
+  line-height:1;display:block;margin-bottom:10px;
+}
+.quality-label {
+  font-size:9px;letter-spacing:3px;color:var(--brown);
+  text-transform:uppercase;font-family:'Montserrat',sans-serif;
+  display:block;margin-bottom:14px;font-weight:500;
+}
+.quality-desc {
+  font-size:11px;color:var(--muted);line-height:1.8;
+}
+
+/* ══════════════════════════════
+   BESTSELLERS
+══════════════════════════════ */
+.bestsellers-section {
+  padding:90px 54px;
+  background:var(--cream);
+}
+.bestsellers-header {
+  display:flex;justify-content:space-between;align-items:flex-end;
+  margin-bottom:52px;
+}
+.bestsellers-header a {
+  font-size:9px;letter-spacing:3px;color:var(--muted);
+  text-decoration:none;text-transform:uppercase;
+  border-bottom:1px solid var(--line);padding-bottom:2px;
+  transition:color .3s;
+}
+.bestsellers-header a:hover { color:var(--gold); }
+
+.products-row {
+  display:grid;grid-template-columns:repeat(4,1fr);gap:22px;
+}
+/* Product card (compact) */
+.pcard {
+  cursor:pointer;
+}
+.pcard-img {
+  position:relative;overflow:hidden;
+  aspect-ratio:3/4;background:#ede5d8;
+  margin-bottom:14px;
+}
+.pcard-photo {
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  transition:transform .8s cubic-bezier(.16,1,.3,1),opacity .5s ease;
+}
+.pcard-photo-2 {
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  opacity:0;transition:opacity .6s ease;
+}
+.pcard:hover .pcard-photo { transform:scale(1.06);opacity:0; }
+.pcard:hover .pcard-photo-2 { opacity:1; }
+.pcard-overlay {
+  position:absolute;inset:0;
+  display:flex;align-items:flex-end;justify-content:center;
+  padding-bottom:20px;
+  background:rgba(44,24,16,.0);transition:background .4s;
+}
+.pcard:hover .pcard-overlay { background:rgba(44,24,16,.3); }
+.pcard-btn {
+  font-size:8px;letter-spacing:3px;font-weight:600;text-transform:uppercase;
+  color:#fff;background:rgba(201,168,76,.92);
+  border:none;padding:10px 24px;font-family:'Montserrat',sans-serif;cursor:pointer;
+  opacity:0;transform:translateY(10px);transition:opacity .3s,transform .3s;
+}
+.pcard:hover .pcard-btn { opacity:1;transform:translateY(0); }
+.pcard-badge {
+  position:absolute;top:12px;left:12px;
+  font-size:7px;letter-spacing:2px;font-weight:600;
+  text-transform:uppercase;padding:4px 9px;z-index:2;
+}
+.bg-gold  { background:var(--gold);color:#fff; }
+.bg-dark  { background:var(--brown);color:#fff; }
+.bg-red   { background:#c0392b;color:#fff; }
+.pcard-wish {
+  position:absolute;top:10px;right:12px;z-index:2;
+  font-size:15px;color:rgba(255,255,255,.0);
+  cursor:pointer;background:none;border:none;
+  transition:color .3s,transform .2s;
+}
+.pcard:hover .pcard-wish { color:rgba(255,255,255,.45); }
+.pcard-wish:hover { color:#fff !important;transform:scale(1.2); }
+.pcard-wish.liked { color:var(--gold) !important; }
+
+.pcard-name {
+  font-family:'Cormorant Garamond',serif;
+  font-size:19px;font-weight:300;color:var(--brown);
+  margin-bottom:4px;line-height:1.2;
+}
+.pcard-sub {
+  font-size:9px;letter-spacing:2px;color:var(--muted);
+  text-transform:uppercase;margin-bottom:10px;
+}
+.pcard-colors { display:flex;gap:5px;margin-bottom:10px; }
+.pc-dot { width:10px;height:10px;border-radius:50%;border:1px solid rgba(0,0,0,.08); }
+.pcard-price { display:flex;align-items:baseline;gap:9px; }
+.pcard-main { font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--brown); }
+.pcard-old  { font-size:12px;color:var(--muted);text-decoration:line-through; }
+.pcard-save { font-size:8px;letter-spacing:1px;color:#c0392b;font-weight:600; }
+
+/* ══════════════════════════════
+   LOOKBOOK STRIP
+══════════════════════════════ */
+.lookbook-section {
+  padding:90px 0 0;
+  background:var(--cream);
+  overflow:hidden;
+}
+.lookbook-header { padding:0 54px 44px;display:flex;justify-content:space-between;align-items:flex-end; }
+.lookbook-header a {
+  font-size:9px;letter-spacing:3px;color:var(--muted);
+  text-decoration:none;text-transform:uppercase;border-bottom:1px solid var(--line);padding-bottom:2px;
+}
+
+.lookbook-scroll {
+  display:flex;gap:12px;
+  padding:0 54px 54px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -ms-overflow-style:none;scrollbar-width:none;
+}
+.lookbook-scroll::-webkit-scrollbar { display:none; }
+.lb-item {
+  flex:0 0 340px;
+  aspect-ratio:3/4;
+  overflow:hidden;
+  position:relative;
+  scroll-snap-align:start;
+  cursor:pointer;
+}
+.lb-photo {
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  transition:transform .8s ease;
+}
+.lb-item:hover .lb-photo { transform:scale(1.05); }
+.lb-cap {
+  position:absolute;bottom:0;left:0;right:0;
+  padding:24px 22px;
+  background:linear-gradient(to top, rgba(44,24,16,.8) 0%, transparent 100%);
+  font-family:'Cormorant Garamond',serif;
+  font-size:18px;font-weight:300;color:#f8f4ee;
+  opacity:0;transition:opacity .4s ease;
+}
+.lb-item:hover .lb-cap { opacity:1; }
+
+/* ══════════════════════════════
+   VERGELIJKING — WAAROM WIJ
+══════════════════════════════ */
+.why-section {
+  padding:90px 54px;
+  background:var(--brown);
+}
+.why-header { text-align:center;margin-bottom:64px; }
+.why-table {
+  max-width:860px;margin:0 auto;
+}
+.why-row {
+  display:grid;grid-template-columns:1fr 1px 1fr;gap:0;
+  padding:22px 0;
+  border-bottom:1px solid rgba(201,168,76,.1);
+}
+.why-row:last-child { border-bottom:none; }
+.why-cell {
+  padding:0 40px;text-align:center;
+}
+.why-cell:first-child { text-align:left;padding-left:0; }
+.why-cell:last-child  { text-align:right;padding-right:0; }
+.why-label {
+  font-size:8px;letter-spacing:3px;color:rgba(248,244,238,.25);
+  text-transform:uppercase;display:block;margin-bottom:8px;
+}
+.why-val-bad {
+  font-size:14px;color:rgba(248,244,238,.3);
+  font-family:'Cormorant Garamond',serif;
+}
+.why-val-good {
+  font-size:14px;color:rgba(248,244,238,.85);font-weight:500;
+  font-family:'Cormorant Garamond',serif;
+}
+.why-divider { background:rgba(201,168,76,.15); }
+.why-center { text-align:center; }
+.why-category {
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-weight:300;font-style:italic;
+  color:rgba(201,168,76,.6);
+}
+
+/* ══════════════════════════════
+   REVIEWS
+══════════════════════════════ */
+.reviews-section {
+  padding:90px 54px;
+  background:var(--cream);
+  border-top:1px solid var(--line);
+}
+.reviews-header { text-align:center;margin-bottom:60px; }
+.reviews-score {
+  display:flex;align-items:center;justify-content:center;gap:16px;
+  margin-top:18px;
+}
+.big-score {
+  font-family:'Cormorant Garamond',serif;
+  font-size:56px;font-weight:300;color:var(--brown);line-height:1;
+}
+.score-stars { color:var(--gold);font-size:16px;letter-spacing:3px; }
+.score-count { font-size:10px;letter-spacing:2px;color:var(--muted); }
+
+.reviews-grid {
+  display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
+}
+.review-card {
+  background:#fff;padding:36px;
+  border:1px solid var(--line);
+  transition:box-shadow .3s;
+}
+.review-card:hover { box-shadow:0 10px 40px rgba(44,24,16,.07); }
+.r-stars { color:var(--gold);font-size:11px;letter-spacing:2px;margin-bottom:16px; }
+.r-text {
+  font-family:'Cormorant Garamond',serif;
+  font-size:17px;font-weight:300;font-style:italic;
+  color:var(--brown);line-height:1.7;margin-bottom:22px;
+}
+.r-author { display:flex;align-items:center;gap:12px; }
+.r-avatar {
+  width:36px;height:36px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:600;color:#fff;
+  font-family:'Montserrat',sans-serif;flex-shrink:0;
+}
+.r-name { font-size:11px;font-weight:500;color:var(--brown);letter-spacing:1px; }
+.r-meta { font-size:9px;color:var(--muted);margin-top:2px;letter-spacing:1px; }
+
+/* ══════════════════════════════
+   EMAIL CAPTURE
+══════════════════════════════ */
+.email-section {
+  padding:100px 54px;
+  background:var(--brown);
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.email-section::before {
+  content:'';position:absolute;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  width:600px;height:300px;
+  background:radial-gradient(ellipse at center, rgba(201,168,76,.08) 0%, transparent 70%);
+  pointer-events:none;
+}
+.email-eyebrow {
+  font-size:9px;letter-spacing:6px;color:rgba(201,168,76,.7);
+  text-transform:uppercase;font-family:'Montserrat',sans-serif;
+  display:block;margin-bottom:18px;
+}
+.email-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(32px,5vw,58px);font-weight:300;
+  color:#f8f4ee;margin-bottom:14px;line-height:1.15;
+}
+.email-title em { font-style:italic;color:#e8c870; }
+.email-sub {
+  font-size:11px;letter-spacing:2px;color:rgba(248,244,238,.35);
+  margin-bottom:44px;
+}
+.email-form {
+  display:flex;max-width:480px;margin:0 auto;gap:0;
+}
+.email-input {
+  flex:1;padding:16px 22px;
+  background:rgba(248,244,238,.06);
+  border:1px solid rgba(248,244,238,.15);border-right:none;
+  color:#f8f4ee;font-family:'Montserrat',sans-serif;
+  font-size:11px;letter-spacing:1px;outline:none;
+  transition:border-color .3s;
+}
+.email-input::placeholder { color:rgba(248,244,238,.25); }
+.email-input:focus { border-color:rgba(201,168,76,.4); }
+.email-submit {
+  background:var(--gold);color:var(--brown);
+  font-size:9px;letter-spacing:3px;font-weight:600;text-transform:uppercase;
+  padding:16px 28px;border:none;cursor:pointer;font-family:'Montserrat',sans-serif;
+  white-space:nowrap;transition:background .3s;
+}
+.email-submit:hover { background:#d9b84e; }
+.email-disclaimer {
+  font-size:9px;letter-spacing:1px;color:rgba(248,244,238,.2);
+  margin-top:18px;
+}
+
+/* ══════════════════════════════
+   FOOTER
+══════════════════════════════ */
+footer {
+  background:#1e0f08;
+  padding:60px 54px 30px;
+}
+.footer-top {
+  display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:50px;
+  padding-bottom:44px;
+  border-bottom:1px solid rgba(201,168,76,.08);
+  margin-bottom:24px;
+}
+.f-brand {
+  font-family:'Cormorant Garamond',serif;
+  font-size:24px;letter-spacing:7px;font-weight:300;
+  color:var(--cream);text-transform:uppercase;margin-bottom:12px;
+}
+.f-tag { font-size:11px;color:rgba(248,244,238,.28);line-height:1.9;margin-bottom:22px; }
+.pay-row { display:flex;gap:7px;flex-wrap:wrap; }
+.pay-chip { font-size:8px;letter-spacing:1px;color:rgba(248,244,238,.25);border:1px solid rgba(248,244,238,.1);padding:3px 8px; }
+.f-col h4 { font-size:8px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:18px; }
+.f-col a { display:block;font-size:11px;color:rgba(248,244,238,.3);text-decoration:none;margin-bottom:9px;transition:color .2s; }
+.f-col a:hover { color:var(--cream); }
+.f-bottom { display:flex;justify-content:space-between;font-size:9px;color:rgba(248,244,238,.15);letter-spacing:1px; }
+
+/* ══════════════════════════════
+   HAMBURGER / MOBILE NAV
+══════════════════════════════ */
+.hamburger {
+  display:none;
+  background:none;border:none;cursor:pointer;
+  font-size:22px;color:rgba(248,244,238,.85);
+  padding:4px 8px;line-height:1;
+  transition:color .3s;
+}
+nav.scrolled .hamburger { color:var(--brown); }
+
+.nav-mobile {
+  display:none;
+  position:fixed;inset:0;z-index:300;
+  background:rgba(44,24,16,.97);
+  flex-direction:column;align-items:center;justify-content:center;
+  gap:28px;
+}
+body.nav-open .nav-mobile { display:flex; }
+body.nav-open { overflow:hidden; }
+
+.nav-mobile a {
+  font-family:'Cormorant Garamond',serif;
+  font-size:34px;font-weight:300;
+  color:rgba(248,244,238,.85);
+  text-decoration:none;letter-spacing:4px;
+  transition:color .3s;
+}
+.nav-mobile a:hover { color:var(--gold); }
+.nav-mobile-close {
+  position:absolute;top:24px;right:28px;
+  font-size:26px;color:rgba(248,244,238,.45);
+  background:none;border:none;cursor:pointer;
+  line-height:1;
+}
+.nav-mobile-divider {
+  width:40px;height:1px;background:rgba(201,168,76,.25);
+  margin:4px 0;
+}
+.nav-mobile-small {
+  font-family:'Montserrat',sans-serif !important;
+  font-size:11px !important;letter-spacing:3px !important;
+  color:rgba(248,244,238,.4) !important;
+}
+
+
+/* ══════════════════════════════
+   TABLET / MOBIEL  ≤ 768px
+══════════════════════════════ */
+@media (max-width:768px) {
+  nav { padding:0 20px; }
+  .nav-links,.nav-right { display:none; }
+  .hamburger { display:block; }
+
+  .hero-content { padding:0 20px; }
+
+  .collections-section { padding:60px 20px; }
+  .collections-grid { grid-template-columns:1fr;height:auto; }
+  .col-card { height:260px; }
+
+  .story-section { grid-template-columns:1fr; }
+  .story-photo { min-height:300px;position:relative; }
+  .story-content { padding:60px 24px; }
+
+  .quality-section { padding:60px 20px; }
+  .quality-grid { grid-template-columns:repeat(2,1fr); }
+
+  .bestsellers-section { padding:60px 20px; }
+  .products-row { grid-template-columns:repeat(2,1fr); }
+
+  .lookbook-section { padding:60px 0 0; }
+  .lookbook-header { padding:0 20px 32px; }
+  .lookbook-scroll { padding:0 20px 40px; }
+  .lb-item { flex:0 0 260px; }
+
+  .why-section { padding:60px 20px; }
+  .why-cell { padding:0 10px; }
+  .why-cell:first-child { padding-left:0; }
+  .why-cell:last-child { padding-right:0; }
+
+  .reviews-section { padding:60px 20px; }
+  .reviews-grid { grid-template-columns:1fr; }
+
+  .email-section { padding:60px 20px; }
+  .email-form { flex-direction:column; }
+  .email-input { border-right:1px solid rgba(248,244,238,.15);border-bottom:none; }
+
+  footer { padding:48px 20px 24px; }
+  .footer-top { grid-template-columns:1fr;gap:28px; }
+  .f-bottom { flex-direction:column;gap:10px;text-align:center; }
+}
+
+/* ══════════════════════════════
+   KLEINE TELEFOONS  ≤ 480px
+══════════════════════════════ */
+@media (max-width:480px) {
+  .quality-grid { grid-template-columns:1fr; }
+  .products-row { grid-template-columns:1fr; }
+}
+
+/* ══════════════════════════════
+   CART PANEL
+══════════════════════════════ */
+#cart-overlay {
+  display:none;
+  position:fixed;inset:0;z-index:400;
+  background:rgba(44,24,16,.45);
+  backdrop-filter:blur(4px);
+}
+body.cart-open #cart-overlay { display:block; }
+#cart-panel {
+  position:fixed;right:0;top:0;bottom:0;width:380px;
+  background:var(--cream);
+  z-index:401;
+  display:flex;flex-direction:column;
+  transform:translateX(100%);
+  transition:transform .4s cubic-bezier(.16,1,.3,1);
+  box-shadow:-8px 0 40px rgba(44,24,16,.18);
+}
+body.cart-open #cart-panel { transform:translateX(0); }
+.cart-header {
+  background:var(--brown);
+  padding:20px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-shrink:0;
+}
+.cart-header-left { display:flex;align-items:center;gap:12px; }
+.cart-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-weight:300;letter-spacing:3px;
+  color:var(--cream);text-transform:uppercase;
+}
+.cart-badge {
+  background:var(--gold);color:#fff;
+  font-size:9px;font-weight:600;letter-spacing:1px;
+  min-width:20px;height:20px;border-radius:10px;
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:0 5px;
+  font-family:'Montserrat',sans-serif;
+}
+.cart-badge.pulse { animation:cartPulse .35s ease; }
+@keyframes cartPulse {
+  0%   { transform:scale(1); }
+  50%  { transform:scale(1.4); }
+  100% { transform:scale(1); }
+}
+.cart-close {
+  background:none;border:none;cursor:pointer;
+  font-size:18px;color:rgba(248,244,238,.5);
+  line-height:1;transition:color .2s;padding:4px;
+}
+.cart-close:hover { color:var(--cream); }
+.cart-body {
+  flex:1;overflow-y:auto;padding:16px 0;
+  scrollbar-width:thin;scrollbar-color:rgba(201,168,76,.15) transparent;
+}
+.cart-empty {
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;height:100%;padding:40px 24px;
+  text-align:center;gap:14px;
+}
+.cart-empty-icon { font-size:36px;color:rgba(44,24,16,.15); }
+.cart-empty-text {
+  font-size:11px;letter-spacing:2px;color:var(--muted);
+  text-transform:uppercase;
+}
+.cart-empty-link {
+  font-size:9px;letter-spacing:3px;font-weight:500;
+  text-transform:uppercase;color:var(--brown);
+  text-decoration:none;border-bottom:1px solid rgba(44,24,16,.3);
+  padding-bottom:2px;transition:border-color .2s,color .2s;
+}
+.cart-empty-link:hover { color:var(--gold);border-color:var(--gold); }
+.cart-item {
+  display:flex;gap:14px;align-items:flex-start;
+  padding:16px 24px;border-bottom:1px solid rgba(201,168,76,.15);
+  position:relative;
+}
+.cart-item-photo {
+  width:72px;height:90px;flex-shrink:0;
+  background-size:cover;background-position:center;
+  background-color:#ede5d8;
+}
+.cart-item-info { flex:1;min-width:0; }
+.cart-item-name {
+  font-family:'Cormorant Garamond',serif;
+  font-size:16px;font-weight:300;color:var(--brown);
+  margin-bottom:4px;line-height:1.3;
+}
+.cart-item-meta {
+  font-size:9px;letter-spacing:2px;color:var(--muted);
+  text-transform:uppercase;margin-bottom:12px;
+}
+.cart-item-row {
+  display:flex;align-items:center;justify-content:space-between;
+}
+.cart-qty {
+  display:flex;align-items:center;
+  border:1px solid rgba(201,168,76,.15);
+}
+.cart-qty button {
+  width:28px;height:28px;background:none;border:none;
+  cursor:pointer;font-size:14px;color:var(--brown);
+  font-family:'Montserrat',sans-serif;
+  transition:background .2s;
+}
+.cart-qty button:hover { background:rgba(44,24,16,.06); }
+.cart-qty span {
+  width:28px;text-align:center;
+  font-size:11px;color:var(--brown);
+  font-family:'Montserrat',sans-serif;
+}
+.cart-item-price {
+  font-family:'Cormorant Garamond',serif;
+  font-size:18px;font-weight:400;color:var(--brown);
+}
+.cart-remove {
+  position:absolute;top:12px;right:14px;
+  background:none;border:none;cursor:pointer;
+  font-size:12px;color:rgba(44,24,16,.25);
+  line-height:1;padding:4px;transition:color .2s;
+}
+.cart-remove:hover { color:var(--brown); }
+.cart-footer {
+  padding:20px 24px 24px;
+  border-top:1px solid rgba(201,168,76,.15);
+  background:var(--cream);
+  flex-shrink:0;
+}
+.cart-total-row {
+  display:flex;justify-content:space-between;align-items:baseline;
+  margin-bottom:10px;
+  font-size:10px;letter-spacing:2px;color:var(--muted);
+  text-transform:uppercase;
+}
+.cart-total-main {
+  font-size:11px;color:var(--brown);font-weight:500;
+  border-top:1px solid rgba(201,168,76,.15);padding-top:10px;margin-top:4px;
+}
+.cart-free-ship { color:var(--gold); }
+.cart-checkout-btn {
+  width:100%;padding:16px;margin-top:16px;
+  background:var(--brown);color:var(--cream);
+  border:none;cursor:pointer;
+  font-size:9px;letter-spacing:4px;font-weight:600;
+  text-transform:uppercase;font-family:'Montserrat',sans-serif;
+  transition:background .3s;
+}
+.cart-checkout-btn:hover { background:#4a2c1a; }
+.cart-trust-note {
+  text-align:center;margin-top:12px;
+  font-size:9px;letter-spacing:1px;color:var(--muted);
+}
+@media (max-width:480px) {
+  #cart-panel { width:100vw; }
+}
+
+/* ── ACCOUNT NAV BUTTON ── */
+#navAccountBtn {
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+  width:40px;height:40px;
+  color:rgba(248,244,238,.8);
+  text-decoration:none;
+  transition:color .3s,transform .2s;
+  flex-shrink:0;
+}
+nav.scrolled #navAccountBtn { color:var(--gold); }
+#navAccountBtn:hover { color:var(--gold) !important;transform:scale(1.1); }
+#navAccountBtn svg { width:22px;height:22px;display:block; }
+#navAccountBtn.logged-in::after {
+  content:'';position:absolute;bottom:7px;right:7px;
+  width:7px;height:7px;border-radius:50%;
+  background:var(--gold);border:1.5px solid rgba(44,24,16,.85);
+}
+
+/* ══════════════════════════════
+   ACCOUNT PANEL
+══════════════════════════════ */
+#account-overlay {
+  display:none;
+  position:fixed;inset:0;z-index:400;
+  background:rgba(44,24,16,.45);
+  backdrop-filter:blur(4px);
+}
+body.account-open #account-overlay { display:block; }
+#account-panel {
+  position:fixed;right:0;top:0;bottom:0;width:380px;
+  background:var(--cream);
+  z-index:401;
+  display:flex;flex-direction:column;
+  transform:translateX(100%);
+  transition:transform .4s cubic-bezier(.16,1,.3,1);
+  box-shadow:-8px 0 40px rgba(44,24,16,.18);
+}
+body.account-open #account-panel { transform:translateX(0); }
+.account-header {
+  background:var(--brown);
+  padding:20px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-shrink:0;
+}
+.account-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-weight:300;letter-spacing:3px;
+  color:var(--cream);text-transform:uppercase;
+}
+.account-close {
+  background:none;border:none;cursor:pointer;
+  font-size:18px;color:rgba(248,244,238,.5);
+  line-height:1;transition:color .2s;padding:4px;
+}
+.account-close:hover { color:var(--cream); }
+.account-body {
+  flex:1;overflow-y:auto;padding:28px 24px;
+  scrollbar-width:thin;scrollbar-color:rgba(201,168,76,.15) transparent;
+}
+.account-tabs {
+  display:flex;
+  border-bottom:1px solid rgba(201,168,76,.2);
+  margin-bottom:28px;
+}
+.account-tab {
+  flex:1;padding:12px 8px;
+  background:none;border:none;border-bottom:2px solid transparent;
+  font-size:9px;letter-spacing:3px;font-weight:500;
+  text-transform:uppercase;color:var(--muted);
+  font-family:'Montserrat',sans-serif;
+  cursor:pointer;margin-bottom:-1px;
+  transition:color .2s,border-color .2s;
+}
+.account-tab:hover { color:var(--brown); }
+.account-tab.active { color:var(--brown);border-bottom-color:var(--gold); }
+.form-group { margin-bottom:18px; }
+.form-group label {
+  display:block;
+  font-size:8px;letter-spacing:3px;font-weight:500;
+  text-transform:uppercase;color:var(--muted);
+  margin-bottom:8px;font-family:'Montserrat',sans-serif;
+}
+.form-group input {
+  width:100%;padding:12px 14px;
+  background:#fff;border:1px solid rgba(201,168,76,.2);
+  font-family:'Montserrat',sans-serif;font-size:12px;color:var(--brown);
+  outline:none;transition:border-color .2s;
+}
+.form-group input:focus { border-color:var(--gold); }
+.form-group input::placeholder { color:rgba(138,117,96,.4); }
+.account-submit-btn {
+  width:100%;padding:16px;margin-top:8px;
+  background:var(--brown);color:var(--cream);
+  border:none;cursor:pointer;
+  font-size:9px;letter-spacing:4px;font-weight:600;
+  text-transform:uppercase;font-family:'Montserrat',sans-serif;
+  transition:background .3s;
+}
+.account-submit-btn:hover { background:#4a2c1a; }
+.form-note {
+  text-align:center;margin-top:14px;
+  font-size:9px;letter-spacing:1px;color:var(--muted);
+}
+.form-note a { color:var(--gold);text-decoration:none; }
+.form-error {
+  display:block;font-size:10px;color:#c0392b;letter-spacing:1px;
+  margin-top:10px;text-align:center;min-height:16px;
+}
+.account-welcome {
+  text-align:center;padding:20px 0 28px;
+  border-bottom:1px solid rgba(201,168,76,.15);
+  margin-bottom:24px;
+}
+.acct-avatar { font-size:40px;color:rgba(201,168,76,.3);margin-bottom:12px; }
+.acct-name {
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:300;color:var(--brown);margin-bottom:4px;
+}
+.acct-email { font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase; }
+.account-menu { display:flex;flex-direction:column;margin-bottom:24px; }
+.account-menu-item {
+  padding:15px 0;
+  border-bottom:1px solid rgba(201,168,76,.1);
+  font-size:10px;letter-spacing:3px;
+  text-transform:uppercase;color:var(--brown);
+  text-decoration:none;
+  display:flex;justify-content:space-between;align-items:center;
+  transition:color .2s,padding-left .2s;
+}
+.account-menu-item::after { content:'›';font-size:18px;color:var(--muted); }
+.account-menu-item:hover { color:var(--gold);padding-left:6px; }
+.account-logout-btn {
+  width:100%;padding:14px;
+  background:none;color:var(--muted);
+  border:1px solid rgba(201,168,76,.2);cursor:pointer;
+  font-size:9px;letter-spacing:3px;font-weight:500;
+  text-transform:uppercase;font-family:'Montserrat',sans-serif;
+  transition:all .3s;
+}
+.account-logout-btn:hover { border-color:var(--brown);color:var(--brown); }
+@media (max-width:480px) {
+  #account-panel { width:100vw; }
+}
+
+/* ══════════════════════════════
+   LANGUAGE SWITCHER
+══════════════════════════════ */
+.lang-switch {
+  display:flex;align-items:center;
+  border:1px solid rgba(248,244,238,.2);
+  border-radius:3px;overflow:hidden;
+  transition:border-color .3s;
+}
+nav.scrolled .lang-switch { border-color:rgba(201,168,76,.25); }
+.lang-btn {
+  background:none;border:none;cursor:pointer;
+  font-size:8px;letter-spacing:2px;font-weight:600;
+  color:rgba(248,244,238,.4);
+  padding:5px 8px;
+  font-family:'Montserrat',sans-serif;
+  text-transform:uppercase;
+  transition:color .3s,background .3s;
+}
+nav.scrolled .lang-btn { color:var(--muted); }
+.lang-btn:hover { color:var(--gold); }
+.lang-btn.active { color:var(--gold);background:rgba(201,168,76,.1); }
+nav.scrolled .lang-btn.active { color:var(--brown);background:rgba(201,168,76,.12); }
+@media (max-width:768px) { .lang-switch { display:none; } }
+</style>
+</head>
+<body>
+
+
+<!-- ══════════════ NAV ══════════════ -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">Luxury Dream</a>
+  <ul class="nav-links">
+    <li><a href="shop.html" data-i18n="nav_collections">Collecties</a></li>
+    <li><a href="#" data-i18n="nav_materials">Materialen</a></li>
+    <li><a href="lookbook.html">Lookbook</a></li>
+    <li><a href="#" data-i18n="nav_about">Over ons</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="#" class="nav-icon" data-i18n="nav_search">Zoeken</a>
+    <a href="#" class="nav-icon" data-i18n="nav_account">Account</a>
+    <div class="lang-switch">
+      <button class="lang-btn active" data-lang="nl" onclick="setLang('nl')">NL</button>
+      <button class="lang-btn" data-lang="de" onclick="setLang('de')">DE</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+  <div class="nav-actions">
+    <a href="#" id="navAccountBtn" onclick="event.preventDefault();toggleAccount()" aria-label="Account">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+      </svg>
+    </a>
+    <a href="#" id="navCartBtn" onclick="event.preventDefault();toggleCart()" aria-label="Winkelwagen openen">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+      </svg>
+      <span class="cart-nav-count cart-nav-badge" style="display:none">0</span>
+    </a>
+    <button class="hamburger" onclick="toggleNav()" aria-label="Menu openen">☰</button>
+  </div>
+</nav>
+
+<!-- MOBILE NAV OVERLAY -->
+<div class="nav-mobile" id="navMobile">
+  <button class="nav-mobile-close" onclick="toggleNav()" aria-label="Menu sluiten">✕</button>
+  <a href="shop.html" data-i18n="nav_collections">Collecties</a>
+  <a href="#" data-i18n="nav_materials">Materialen</a>
+  <a href="lookbook.html">Lookbook</a>
+  <a href="#" data-i18n="nav_about">Over ons</a>
+  <div class="nav-mobile-divider"></div>
+  <a href="#" class="nav-mobile-small" data-i18n="nav_search">Zoeken</a>
+  <a href="#" class="nav-mobile-small" onclick="event.preventDefault();toggleNav();setTimeout(toggleAccount,320)" data-i18n="nav_account">Account</a>
+  <a href="#" class="nav-mobile-small" onclick="event.preventDefault();toggleCart()"><span data-i18n="nav_cart_label">Winkelwagen</span>&nbsp;(<span class="cart-nav-count">0</span>)</a>
+</div>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero">
+  <div class="hero-slide hero-slide-1 active" id="hs0"></div>
+  <div class="hero-slide hero-slide-2" id="hs1"></div>
+  <div class="hero-slide hero-slide-3" id="hs2"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow" data-i18n="hero_eyebrow">Luxe Beddengoed · Handgemaakt in Portugal · Egyptisch Katoen</span>
+    <h1 class="hero-title" data-i18n-html="hero_title">Ervaar elke nacht als een<br><em>5 sterren ervaring</em></h1>
+    <p class="hero-sub" data-i18n="hero_sub">600 TC Egyptisch katoen · Handgemaakt · OEKO-TEX®</p>
+    <div class="hero-cta">
+      <button class="btn-gold" onclick="window.location='shop.html'" data-i18n="hero_cta">Shop collecties</button>
+    </div>
+  </div>
+  <div class="hero-dots">
+    <div class="dot active" onclick="goSlide(0)"></div>
+    <div class="dot" onclick="goSlide(1)"></div>
+    <div class="dot" onclick="goSlide(2)"></div>
+  </div>
+</section>
+
+<!-- ══════════════ MARQUEE ══════════════ -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <!-- herhaal 2x voor naadloze loop -->
+    <div class="marquee-item">600 TC Egyptisch Katoen <div class="marquee-dot"></div></div>
+    <div class="marquee-item">Handgemaakt in Portugal <div class="marquee-dot"></div></div>
+    <div class="marquee-item">OEKO-TEX® Standard 100 <div class="marquee-dot"></div></div>
+    <div class="marquee-item">Gratis verzending <div class="marquee-dot"></div></div>
+    <div class="marquee-item">30 dagen retourrecht <div class="marquee-dot"></div></div>
+    <div class="marquee-item">8 jaar garantie <div class="marquee-dot"></div></div>
+    <div class="marquee-item">iDEAL & Mollie betaling <div class="marquee-dot"></div></div>
+    <div class="marquee-item">600 TC Egyptisch Katoen <div class="marquee-dot"></div></div>
+    <div class="marquee-item">Handgemaakt in Portugal <div class="marquee-dot"></div></div>
+    <div class="marquee-item">OEKO-TEX® Standard 100 <div class="marquee-dot"></div></div>
+    <div class="marquee-item">Gratis verzending <div class="marquee-dot"></div></div>
+    <div class="marquee-item">30 dagen retourrecht <div class="marquee-dot"></div></div>
+    <div class="marquee-item">8 jaar garantie <div class="marquee-dot"></div></div>
+    <div class="marquee-item">iDEAL & Mollie betaling <div class="marquee-dot"></div></div>
+  </div>
+</div>
+
+<!-- ══════════════ COLLECTIES ══════════════ -->
+<section class="collections-section">
+  <div class="collections-header reveal">
+    <div>
+      <span class="section-eyebrow" data-i18n="col_eyebrow">Onze collecties</span>
+      <h2 class="section-title" data-i18n-html="col_title">Ontdek de<br><em>perfecte slaap</em></h2>
+    </div>
+    <a href="shop.html" data-i18n="col_see_all">Alle collecties bekijken</a>
+  </div>
+  <div class="collections-grid reveal">
+    <div class="col-card">
+      <div class="col-photo" style="background-image:url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=900&q=85')"></div>
+      <div class="col-overlay"></div>
+      <div class="col-info">
+        <span class="col-eyebrow">600 TC · Satijnweving</span>
+        <h3 class="col-name">Nocturne<br>Collectie</h3>
+        <span class="col-link" data-i18n="col_view">Bekijken</span>
+      </div>
+    </div>
+    <div class="col-card">
+      <div class="col-photo" style="background-image:url('https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=700&q=85');background-position:center 30%"></div>
+      <div class="col-overlay"></div>
+      <div class="col-info">
+        <span class="col-eyebrow">480 TC · Percal</span>
+        <h3 class="col-name">Ivory &amp;<br>Cream</h3>
+        <span class="col-link" data-i18n="col_view">Bekijken</span>
+      </div>
+    </div>
+    <div class="col-card">
+      <div class="col-photo" style="background-image:url('https://images.unsplash.com/photo-1571508601891-ca5e7a713859?auto=format&fit=crop&w=700&q=85')"></div>
+      <div class="col-overlay"></div>
+      <div class="col-info">
+        <span class="col-eyebrow">500 TC · Belgisch linnen</span>
+        <h3 class="col-name">Forest<br>Linen</h3>
+        <span class="col-link" data-i18n="col_view">Bekijken</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ BRAND STORY ══════════════ -->
+<section class="story-section">
+  <div class="story-photo reveal-left">
+    <div class="story-photo-bg"></div>
+  </div>
+  <div class="story-content reveal-right">
+    <span class="section-eyebrow" style="color:rgba(201,168,76,.7)" data-i18n="story_eyebrow">Ons verhaal</span>
+    <p class="story-quote" data-i18n="story_quote">In onze ateliers aan de Douro weeft elke draad het verhaal van generaties ambacht</p>
+    <div class="gold-line"></div>
+    <p class="story-body" data-i18n="story_body">In 1987 begon onze reis in de stegen van Porto. Wat als een kleine weefschool begon, groeide uit tot een van de meest gerespecteerde beddengoedfabrikanten van Portugal. Elk stuk wordt nog steeds met de hand geweven op generaties oude Jacquard-getouwen, van de fijnste langvezelige katoen die de Nijldelta ons schenkt.</p>
+    <button class="btn-cream" data-i18n="story_btn">Lees ons verhaal</button>
+  </div>
+</section>
+
+<!-- ══════════════ KWALITEIT ══════════════ -->
+<section class="quality-section">
+  <div class="quality-header reveal">
+    <span class="section-eyebrow" data-i18n="quality_eyebrow">Waarom Luxury Dream</span>
+    <h2 class="section-title" data-i18n-html="quality_title">Kwaliteit die<br><em>je voelt</em></h2>
+  </div>
+  <div class="quality-grid">
+    <div class="quality-card reveal d1">
+      <span class="quality-num">600</span>
+      <span class="quality-label" data-i18n="quality_1_label">Draaddichtheid</span>
+      <p class="quality-desc" data-i18n="quality_1_desc">Twee keer zo dicht als gemiddeld beddengoed. Hoe hoger, hoe zachter en duurzamer het weefsel.</p>
+    </div>
+    <div class="quality-card reveal d2">
+      <span class="quality-num">100%</span>
+      <span class="quality-label" data-i18n="quality_2_label">Egyptisch katoen</span>
+      <p class="quality-desc" data-i18n="quality_2_desc">Langvezelig katoen uit de Nijldelta. Sterker, zachter en glanzender dan gewone katoenvarianten.</p>
+    </div>
+    <div class="quality-card reveal d3">
+      <span class="quality-num">8</span>
+      <span class="quality-label" data-i18n="quality_3_label">Jaar garantie</span>
+      <p class="quality-desc" data-i18n="quality_3_desc">Wij staan achter elke steek. Ons beddengoed is gemaakt om decennia mee te gaan, niet seizoenen.</p>
+    </div>
+    <div class="quality-card reveal d4">
+      <span class="quality-num">✓</span>
+      <span class="quality-label" data-i18n="quality_4_label">OEKO-TEX® 100</span>
+      <p class="quality-desc" data-i18n="quality_4_desc">Vrij van schadelijke stoffen. Veilig voor de gevoeligste huid, gecertificeerd door onafhankelijke instituten.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ BESTSELLERS ══════════════ -->
+<section class="bestsellers-section">
+  <div class="bestsellers-header reveal">
+    <div>
+      <span class="section-eyebrow" data-i18n="best_eyebrow">Meest geliefd</span>
+      <h2 class="section-title" data-i18n-html="best_title">Onze <em>bestsellers</em></h2>
+    </div>
+    <a href="shop.html" data-i18n="best_see_all">Hele collectie</a>
+  </div>
+  <div class="products-row">
+
+    <div class="pcard reveal d1">
+      <div class="pcard-img">
+        <div class="pcard-photo" style="background-image:url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=500&q=80')"></div>
+        <div class="pcard-photo-2" style="background-image:url('https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=500&q=80')"></div>
+        <div class="pcard-overlay"><button class="pcard-btn" onclick="window.location='luxurydream-product.html'" data-i18n="pcard_btn">Bekijk product</button></div>
+        <span class="pcard-badge bg-gold" data-i18n="badge_bestseller">Bestseller</span>
+        <button class="pcard-wish" onclick="toggleWish(this);event.stopPropagation()">♡</button>
+      </div>
+      <div class="pcard-colors"><div class="pc-dot" style="background:#f0e8dc"></div><div class="pc-dot" style="background:#2c1810"></div><div class="pc-dot" style="background:#1a2040"></div></div>
+      <h3 class="pcard-name">Nocturne Dekbedovertrek</h3>
+      <p class="pcard-sub">600 TC · Satijnweving</p>
+      <div class="pcard-price"><span class="pcard-main">€ 289</span><span class="pcard-old">€ 349</span><span class="pcard-save">−17%</span></div>
+    </div>
+
+    <div class="pcard reveal d2">
+      <div class="pcard-img">
+        <div class="pcard-photo" style="background-image:url('https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=500&q=80')"></div>
+        <div class="pcard-photo-2" style="background-image:url('https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=500&q=80')"></div>
+        <div class="pcard-overlay"><button class="pcard-btn" onclick="window.location='luxurydream-product.html'" data-i18n="pcard_btn">Bekijk product</button></div>
+        <span class="pcard-badge bg-dark" data-i18n="badge_new">Nieuw</span>
+        <button class="pcard-wish" onclick="toggleWish(this);event.stopPropagation()">♡</button>
+      </div>
+      <div class="pcard-colors"><div class="pc-dot" style="background:#f0e8dc"></div><div class="pc-dot" style="background:#c8b89a"></div></div>
+      <h3 class="pcard-name">Ivory Dekbedovertrek</h3>
+      <p class="pcard-sub">480 TC · Percal</p>
+      <div class="pcard-price"><span class="pcard-main">€ 249</span></div>
+    </div>
+
+    <div class="pcard reveal d3">
+      <div class="pcard-img">
+        <div class="pcard-photo" style="background-image:url('https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=500&q=80')"></div>
+        <div class="pcard-photo-2" style="background-image:url('https://images.unsplash.com/photo-1571508601891-ca5e7a713859?auto=format&fit=crop&w=500&q=80')"></div>
+        <div class="pcard-overlay"><button class="pcard-btn" onclick="window.location='luxurydream-product.html'" data-i18n="pcard_btn">Bekijk product</button></div>
+        <button class="pcard-wish" onclick="toggleWish(this);event.stopPropagation()">♡</button>
+      </div>
+      <div class="pcard-colors"><div class="pc-dot" style="background:#f0e8dc"></div><div class="pc-dot" style="background:#4a6e4a"></div><div class="pc-dot" style="background:#1a2040"></div></div>
+      <h3 class="pcard-name">Complete Slaapset</h3>
+      <p class="pcard-sub">Dekbed + kussens + hoeslaken</p>
+      <div class="pcard-price"><span class="pcard-main">€ 449</span><span class="pcard-old">€ 549</span><span class="pcard-save">−18%</span></div>
+    </div>
+
+    <div class="pcard reveal d4">
+      <div class="pcard-img">
+        <div class="pcard-photo" style="background-image:url('https://images.unsplash.com/photo-1588046130717-0eb0c9a3ba15?auto=format&fit=crop&w=500&q=80')"></div>
+        <div class="pcard-photo-2" style="background-image:url('https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=500&q=80')"></div>
+        <div class="pcard-overlay"><button class="pcard-btn" onclick="window.location='luxurydream-product.html'" data-i18n="pcard_btn">Bekijk product</button></div>
+        <span class="pcard-badge bg-red">−20%</span>
+        <button class="pcard-wish" onclick="toggleWish(this);event.stopPropagation()">♡</button>
+      </div>
+      <div class="pcard-colors"><div class="pc-dot" style="background:#f0e8dc"></div><div class="pc-dot" style="background:#8a6a5a"></div></div>
+      <h3 class="pcard-name">Pearl White Dekbed</h3>
+      <p class="pcard-sub">600 TC · Percal</p>
+      <div class="pcard-price"><span class="pcard-main">€ 279</span><span class="pcard-old">€ 349</span><span class="pcard-save">−20%</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════ LOOKBOOK ══════════════ -->
+<section class="lookbook-section">
+  <div class="lookbook-header reveal">
+    <div>
+      <span class="section-eyebrow" data-i18n="lookbook_eyebrow">Inspiratie</span>
+      <h2 class="section-title" data-i18n-html="lookbook_title">Lookbook <em>2026</em></h2>
+    </div>
+    <a href="lookbook.html" data-i18n="lookbook_see_all">Alle editorials</a>
+  </div>
+  <div class="lookbook-scroll">
+    <div class="lb-item"><div class="lb-photo" style="background-image:url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=500&q=80')"></div><div class="lb-cap" data-i18n="lb_1">Ochtendlicht · Nocturne</div></div>
+    <div class="lb-item"><div class="lb-photo" style="background-image:url('https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=500&q=80')"></div><div class="lb-cap" data-i18n="lb_2">Stille luxe · Ivory</div></div>
+    <div class="lb-item"><div class="lb-photo" style="background-image:url('https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=500&q=80')"></div><div class="lb-cap" data-i18n="lb_3">Porto atelier · 2026</div></div>
+    <div class="lb-item"><div class="lb-photo" style="background-image:url('https://images.unsplash.com/photo-1571508601891-ca5e7a713859?auto=format&fit=crop&w=500&q=80')"></div><div class="lb-cap" data-i18n="lb_4">Forest Linen · Groen</div></div>
+    <div class="lb-item"><div class="lb-photo" style="background-image:url('https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=500&q=80')"></div><div class="lb-cap" data-i18n="lb_5">Detail · Egyptisch katoen</div></div>
+  </div>
+</section>
+
+<!-- ══════════════ VERGELIJKING ══════════════ -->
+<section class="why-section">
+  <div class="why-header reveal">
+    <span class="section-eyebrow" style="color:rgba(201,168,76,.7)" data-i18n="why_eyebrow">Transparantie</span>
+    <h2 class="section-title section-title-light" data-i18n-html="why_title">Luxury Dream vs.<br><em>gemiddeld beddengoed</em></h2>
+  </div>
+  <div class="why-table reveal">
+    <div class="why-row">
+      <div class="why-cell"><span class="why-label" data-i18n="why_average">Gemiddeld</span><span class="why-val-bad" data-i18n="why_c1_avg">200 TC draaddichtheid</span></div>
+      <div class="why-divider"></div>
+      <div class="why-cell why-center"><span class="why-category" data-i18n="why_c1_cat">Draaddichtheid</span></div>
+      <div class="why-divider"></div>
+      <div class="why-cell" style="text-align:right"><span class="why-label" data-i18n="why_ld">Luxury Dream</span><span class="why-val-good" data-i18n="why_c1_ld">600 TC draaddichtheid</span></div>
+    </div>
+    <div class="why-row">
+      <div class="why-cell"><span class="why-label" data-i18n="why_average">Gemiddeld</span><span class="why-val-bad" data-i18n="why_c2_avg">Kortvezelig katoen (China)</span></div>
+      <div class="why-divider"></div>
+      <div class="why-cell why-center"><span class="why-category" data-i18n="why_c2_cat">Herkomst katoen</span></div>
+      <div class="why-divider"></div>
+      <div class="why-cell" style="text-align:right"><span class="why-label" data-i18n="why_ld">Luxury Dream</span><span class="why-val-good" data-i18n="why_c2_ld">Langvezelig Egyptisch katoen</span></div>
+    </div>
+    <div class="why-row">
+      <div class="why-cell"><span class="why-label" data-i18n="why_average">Gemiddeld</span><span class="why-val-bad" data-i18n="why_c3_avg">Machine-geproduceerd</span></div>
+      <div class="why-divider"></div>
+      <div class="why-cell why-center"><span class="why-category" data-i18n="why_c3_cat">Productie</span></div>
+      <div class="why-divider"></div>
+      <div class="why-cell" style="text-align:right"><span class="why-label" data-i18n="why_ld">Luxury Dream</span><span class="why-val-good" data-i18n="why_c3_ld">Handgemaakt, Porto Portugal</span></div>
+    </div>
+    <div class="why-row">
+      <div class="why-cell"><span class="why-label" data-i18n="why_average">Gemiddeld</span><span class="why-val-bad" data-i18n="why_c4_avg">1–2 jaar levensduur</span></div>
+      <div class="why-divider"></div>
+      <div class="why-cell why-center"><span class="why-category" data-i18n="why_c4_cat">Levensduur</span></div>
+      <div class="why-divider"></div>
+      <div class="why-cell" style="text-align:right"><span class="why-label" data-i18n="why_ld">Luxury Dream</span><span class="why-val-good" data-i18n="why_c4_ld">8 jaar garantie</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ REVIEWS ══════════════ -->
+<section class="reviews-section">
+  <div class="reviews-header reveal">
+    <span class="section-eyebrow" data-i18n="rev_eyebrow">Klanten aan het woord</span>
+    <h2 class="section-title" data-i18n-html="rev_title">Wat onze klanten<br><em>zeggen</em></h2>
+    <div class="reviews-score">
+      <span class="big-score">4.9</span>
+      <div>
+        <div class="score-stars">★★★★★</div>
+        <div class="score-count" data-i18n="rev_score_count">op basis van 312 beoordelingen</div>
+      </div>
+    </div>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card reveal d1">
+      <div class="r-stars">★★★★★</div>
+      <p class="r-text" data-i18n="rev_1">"Ik heb in vijfsterrenhotels geslapen die niet zo lekker aanvoelen als dit dekbed. Absoluut de beste aankoop voor mijn slaapkamer ooit."</p>
+      <div class="r-author">
+        <div class="r-avatar" style="background:linear-gradient(135deg,#C9A84C,#8B6914)">SM</div>
+        <div><div class="r-name">Sophie M. — Amsterdam</div><div class="r-meta">Geverifieerde aankoop · Feb 2026</div></div>
+      </div>
+    </div>
+    <div class="review-card reveal d2">
+      <div class="r-stars">★★★★★</div>
+      <p class="r-text" data-i18n="rev_2">"Na zes maanden dagelijks gebruik voelt het nog precies hetzelfde als de eerste nacht. Een investering die zichzelf terugbetaalt."</p>
+      <div class="r-author">
+        <div class="r-avatar" style="background:linear-gradient(135deg,#4a6e4a,#2a3a2a)">TK</div>
+        <div><div class="r-name">Thomas K. — Utrecht</div><div class="r-meta">Geverifieerde aankoop · Jan 2026</div></div>
+      </div>
+    </div>
+    <div class="review-card reveal d3">
+      <div class="r-stars">★★★★★</div>
+      <p class="r-text" data-i18n="rev_3">"De verpakking alleen al ademt luxe. Maar het product zelf overtreft alles — zijdezacht, koel in de zomer, warm in de winter."</p>
+      <div class="r-author">
+        <div class="r-avatar" style="background:linear-gradient(135deg,#1a2040,#0a1030)">LV</div>
+        <div><div class="r-name">Laura V. — Rotterdam</div><div class="r-meta">Geverifieerde aankoop · Mrt 2026</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ EMAIL CAPTURE ══════════════ -->
+<section class="email-section">
+  <span class="email-eyebrow reveal" data-i18n="email_eyebrow">Exclusief voor nieuwsbriefleden</span>
+  <h2 class="email-title reveal" data-i18n-html="email_title">Ontvang <em>10% korting</em><br>op uw eerste bestelling</h2>
+  <p class="email-sub reveal" data-i18n="email_sub">Schrijf u in en ontvang nieuws over nieuwe collecties, exclusieve aanbiedingen en slaaptips.</p>
+  <div class="email-form reveal">
+    <input class="email-input" type="email" placeholder="Uw e-mailadres" data-i18n-placeholder="email_placeholder">
+    <button class="email-submit" data-i18n="email_btn">Aanmelden</button>
+  </div>
+  <p class="email-disclaimer reveal" data-i18n="email_disclaimer">U kunt zich op elk moment afmelden. Geen spam, beloofd.</p>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<!-- SEO content block -->
+<section style="padding:48px 54px;background:#FDFAF6;border-top:1px solid var(--line);">
+  <div style="max-width:900px;margin:0 auto;">
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--brown);margin-bottom:16px;">Luxe beddengoed van biologisch Egyptisch katoen</h2>
+    <p style="font-size:11px;color:var(--muted);line-height:2;margin-bottom:14px;">
+      Luxury Dream biedt <strong>handgemaakt luxe beddengoed</strong> van de hoogste kwaliteit. Ons beddengoed is gemaakt van <strong>600 TC langvezelig Egyptisch katoen</strong> — het zachtste en meest duurzame katoen ter wereld. Elk stuk wordt met de hand geweven en afgewerkt in onze ateliers in Porto, Portugal.
+    </p>
+    <p style="font-size:11px;color:var(--muted);line-height:2;margin-bottom:14px;">
+      Naast <strong>luxe beddengoed</strong> bieden wij ook een collectie <strong>premium kussens</strong> en <strong>luxe nachtkastjes</strong> — samengesteld om jouw slaapkamer compleet te maken. Al onze producten zijn <strong>OEKO-TEX® Standard 100 gecertificeerd</strong> en vrij van schadelijke stoffen.
+    </p>
+    <p style="font-size:11px;color:var(--muted);line-height:2;">
+      Op zoek naar <strong>hotelkwaliteit beddengoed</strong> voor thuis? Of <strong>natuurlijk beddengoed</strong> dat goed is voor mens en milieu? Luxury Dream levert rechtstreeks vanuit Portugal naar jouw deur — met gratis verzending en 30 dagen retourrecht.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="f-brand">Luxury Dream</div>
+      <p class="f-tag" data-i18n-html="footer_tag">Handgemaakt beddengoed uit Portugal.<br>Omdat u de beste nachtrust verdient.</p>
+      <div class="pay-row">
+        <div class="pay-chip">iDEAL</div>
+        <div class="pay-chip">Visa</div>
+        <div class="pay-chip">Mastercard</div>
+        <div class="pay-chip">Mollie</div>
+        <div class="pay-chip">Klarna</div>
+      </div>
+    </div>
+    <div class="f-col">
+      <h4 data-i18n="footer_h1">Collecties</h4>
+      <a href="shop.html" data-i18n="footer_f1_1">Alle producten</a>
+      <a href="#">Nocturne</a>
+      <a href="#">Ivory & Cream</a>
+      <a href="#">Forest Linen</a>
+      <a href="#" data-i18n="footer_f1_5">Bundels & Sets</a>
+    </div>
+    <div class="f-col">
+      <h4 data-i18n="footer_h2">Informatie</h4>
+      <a href="#" data-i18n="footer_f2_1">Ons verhaal</a>
+      <a href="#" data-i18n="footer_f2_2">Materialen</a>
+      <a href="#" data-i18n="footer_f2_3">Maattabel</a>
+      <a href="lookbook.html">Lookbook</a>
+    </div>
+    <div class="f-col">
+      <h4 data-i18n="footer_h3">Service</h4>
+      <a href="#" data-i18n="footer_f3_1">Bezorging</a>
+      <a href="#" data-i18n="footer_f3_2">Retourneren</a>
+      <a href="#" data-i18n="footer_f3_3">Garantie</a>
+      <a href="#" data-i18n="footer_f3_4">Contact</a>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <span>© 2026 Luxury Dream · KVK 12345678 · BTW NL001234567B01</span>
+    <span data-i18n="footer_bottom_2">Algemene voorwaarden · Privacy · Cookies</span>
+  </div>
+</footer>
+
+<script>
+
+// ── NAV SCROLL ──
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>60);
+});
+
+// ── HERO SLIDESHOW ──
+const heroEl=document.querySelector('.hero');
+const slides=[document.getElementById('hs0'),document.getElementById('hs1'),document.getElementById('hs2')];
+const dots=document.querySelectorAll('.dot');
+// Foto-URLs gespiegeld vanuit de CSS klassen
+const slideUrls=[
+  'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1920&q=85',
+  'https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=1920&q=85',
+  'https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=1920&q=85'
+];
+let cur_slide=0,slideTimer;
+
+function goSlide(idx){
+  if(idx===cur_slide) return;
+  const prev=cur_slide;
+
+  // Stap 1: hero-achtergrond = huidige foto → ALTIJD een foto zichtbaar, ook tijdens transitie
+  heroEl.style.backgroundImage="url('"+slideUrls[prev]+"')";
+
+  // Stap 2: oud slide meteen verbergen (hero-bg toont exact hetzelfde beeld — geen sprong)
+  slides[prev].style.cssText='opacity:0;transition:none;z-index:1;';
+  slides[prev].classList.remove('active');
+  dots[prev].classList.remove('active');
+
+  // Stap 3: nieuw slide klaarzetten
+  cur_slide=idx;
+  dots[cur_slide].classList.add('active');
+
+  // Stap 4: dubbele requestAnimationFrame zodat browser één frame schildert (opacity:0)
+  //         vóór de fade-in begint → .active transition:opacity 1.4s ease vuurt correct
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    slides[cur_slide].classList.add('active');
+  }));
+
+  // Stap 5: inline styles oud slide opruimen nadat nieuw slide volledig zichtbaar is
+  setTimeout(()=>{ slides[prev].style.cssText=''; },200);
+
+  clearInterval(slideTimer);
+  slideTimer=setInterval(nextSlide,5500);
+}
+function nextSlide(){ goSlide((cur_slide+1)%slides.length); }
+slideTimer=setInterval(nextSlide,5500);
+
+// ── SCROLL REVEAL ──
+const revealObs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('visible');revealObs.unobserve(e.target); }
+  });
+},{threshold:.1});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>revealObs.observe(el));
+
+// ── WISHLIST ──
+function toggleWish(btn){
+  btn.classList.toggle('liked');
+  btn.textContent=btn.classList.contains('liked')?'♥':'♡';
+}
+
+// ── HAMBURGER ──
+function toggleNav(){
+  document.body.classList.toggle('nav-open');
+}
+
+// ── CART ──
+let cart = JSON.parse(localStorage.getItem('ld-cart') || '[]');
+
+function saveCart() { localStorage.setItem('ld-cart', JSON.stringify(cart)); updateCartCount(); }
+
+function updateCartCount() {
+  const n = cart.reduce((s,i) => s+i.qty, 0);
+  document.querySelectorAll('.cart-nav-count').forEach(el => {
+    el.textContent = n;
+    if (el.classList.contains('cart-nav-badge')) el.style.display = n > 0 ? 'flex' : 'none';
+  });
+  const badge = document.getElementById('cartBadge');
+  if (!badge) return;
+  badge.textContent = n;
+  badge.classList.remove('pulse'); void badge.offsetWidth; badge.classList.add('pulse');
+}
+
+function toggleCart() {
+  if (document.body.classList.contains('account-open')) document.body.classList.remove('account-open');
+  document.body.classList.toggle('cart-open');
+  if (document.body.classList.contains('cart-open')) renderCart();
+}
+
+function renderCart() {
+  const itemsEl=document.getElementById('cartItems');
+  const emptyEl=document.getElementById('cartEmpty');
+  const footerEl=document.getElementById('cartFooter');
+  if(!itemsEl) return;
+  if(cart.length===0){ itemsEl.innerHTML=''; emptyEl.style.display='flex'; footerEl.style.display='none'; return; }
+  emptyEl.style.display='none'; footerEl.style.display='block';
+  itemsEl.innerHTML=cart.map((item,idx)=>`
+    <div class="cart-item">
+      <div class="cart-item-photo" style="background-image:url('${item.photo}')"></div>
+      <div class="cart-item-info">
+        <p class="cart-item-name">${item.name}</p>
+        <p class="cart-item-meta">${item.size} · ${item.color}</p>
+        <div class="cart-item-row">
+          <div class="cart-qty">
+            <button onclick="updateQty(${idx},-1)">−</button>
+            <span>${item.qty}</span>
+            <button onclick="updateQty(${idx},1)">+</button>
+          </div>
+          <span class="cart-item-price">€ ${(item.price*item.qty).toFixed(0)}</span>
+        </div>
+      </div>
+      <button class="cart-remove" onclick="removeFromCart(${idx})">✕</button>
+    </div>`).join('');
+  const sub=cart.reduce((s,i)=>s+i.price*i.qty,0);
+  document.getElementById('cartSubtotal').textContent='€ '+sub.toFixed(0);
+  document.getElementById('cartTotal').textContent='€ '+sub.toFixed(0);
+}
+
+function updateQty(idx,delta){ cart[idx].qty=Math.max(1,cart[idx].qty+delta); saveCart(); renderCart(); }
+function removeFromCart(idx){ cart.splice(idx,1); saveCart(); renderCart(); }
+
+function addToCart(item){
+  const ex=cart.find(i=>i.id===item.id&&i.size===item.size&&i.color===item.color);
+  if(ex){ ex.qty++; } else { cart.push({...item,qty:1}); }
+  saveCart(); renderCart();
+  if(!document.body.classList.contains('cart-open')) toggleCart();
+}
+
+updateCartCount();
+
+// ── ACCOUNT ──
+let user = JSON.parse(localStorage.getItem('ld-user') || 'null');
+
+function toggleAccount() {
+  if (document.body.classList.contains('cart-open')) document.body.classList.remove('cart-open');
+  document.body.classList.toggle('account-open');
+  if (document.body.classList.contains('account-open')) renderAccount();
+}
+
+function renderAccount() {
+  user = JSON.parse(localStorage.getItem('ld-user') || 'null');
+  const guestEl  = document.getElementById('accountGuest');
+  const loggedEl = document.getElementById('accountLoggedIn');
+  if (!guestEl) return;
+  if (user) {
+    guestEl.style.display  = 'none';
+    loggedEl.style.display = 'block';
+    document.getElementById('accountUserName').textContent  = user.name;
+    document.getElementById('accountUserEmail').textContent = user.email;
+    const btn = document.getElementById('navAccountBtn');
+    if (btn) btn.classList.add('logged-in');
+  } else {
+    guestEl.style.display  = 'block';
+    loggedEl.style.display = 'none';
+    const btn = document.getElementById('navAccountBtn');
+    if (btn) btn.classList.remove('logged-in');
+  }
+}
+
+function showAccountTab(tab) {
+  document.getElementById('tabLogin').classList.toggle('active', tab === 'login');
+  document.getElementById('tabRegister').classList.toggle('active', tab === 'register');
+  document.getElementById('accountLoginForm').style.display    = tab === 'login'    ? 'block' : 'none';
+  document.getElementById('accountRegisterForm').style.display = tab === 'register' ? 'block' : 'none';
+}
+
+function handleLogin() {
+  const email = document.getElementById('loginEmail').value.trim();
+  const pw    = document.getElementById('loginPassword').value;
+  const err   = document.getElementById('loginError');
+  if (!email || !pw) { err.textContent = 'Vul alle velden in.'; return; }
+  const stored = JSON.parse(localStorage.getItem('ld-acc-' + email) || 'null');
+  if (!stored || stored.pw !== pw) { err.textContent = 'Onjuist e-mailadres of wachtwoord.'; return; }
+  err.textContent = '';
+  user = { name: stored.name, email };
+  localStorage.setItem('ld-user', JSON.stringify(user));
+  renderAccount();
+}
+
+function handleRegister() {
+  const name  = document.getElementById('regName').value.trim();
+  const email = document.getElementById('regEmail').value.trim();
+  const pw    = document.getElementById('regPassword').value;
+  const err   = document.getElementById('regError');
+  if (!name || !email || !pw) { err.textContent = 'Vul alle velden in.'; return; }
+  if (pw.length < 6) { err.textContent = 'Wachtwoord minimaal 6 tekens.'; return; }
+  if (!/\S+@\S+\.\S+/.test(email)) { err.textContent = 'Ongeldig e-mailadres.'; return; }
+  localStorage.setItem('ld-acc-' + email, JSON.stringify({ name, email, pw }));
+  user = { name, email };
+  localStorage.setItem('ld-user', JSON.stringify(user));
+  renderAccount();
+}
+
+function handleLogout() {
+  localStorage.removeItem('ld-user');
+  user = null;
+  renderAccount();
+}
+
+renderAccount();
+
+// ── TAALWISSELAAR / LANGUAGE SWITCHER ──
+const T = {
+  nl: {
+    nav_collections:'Collecties', nav_materials:'Materialen', nav_about:'Over ons',
+    nav_search:'Zoeken', nav_account:'Account', nav_cart_label:'Winkelwagen',
+    hero_eyebrow:'Luxe Beddengoed · Handgemaakt in Portugal · Egyptisch Katoen',
+    hero_title:'Ervaar elke nacht als een<br><em>5 sterren ervaring</em>',
+    hero_sub:'600 TC Egyptisch katoen · Handgemaakt · OEKO-TEX®',
+    hero_cta:'Shop collecties',
+    col_eyebrow:'Onze collecties', col_title:'Ontdek de<br><em>perfecte slaap</em>',
+    col_see_all:'Alle collecties bekijken', col_view:'Bekijken',
+    story_eyebrow:'Ons verhaal',
+    story_quote:'In onze ateliers aan de Douro weeft elke draad het verhaal van generaties ambacht',
+    story_body:'In 1987 begon onze reis in de stegen van Porto. Wat als een kleine weefschool begon, groeide uit tot een van de meest gerespecteerde beddengoedfabrikanten van Portugal. Elk stuk wordt nog steeds met de hand geweven op generaties oude Jacquard-getouwen, van de fijnste langvezelige katoen die de Nijldelta ons schenkt.',
+    story_btn:'Lees ons verhaal',
+    quality_eyebrow:'Waarom Luxury Dream', quality_title:'Kwaliteit die<br><em>je voelt</em>',
+    quality_1_label:'Draaddichtheid', quality_1_desc:'Twee keer zo dicht als gemiddeld beddengoed. Hoe hoger, hoe zachter en duurzamer het weefsel.',
+    quality_2_label:'Egyptisch katoen', quality_2_desc:'Langvezelig katoen uit de Nijldelta. Sterker, zachter en glanzender dan gewone katoenvarianten.',
+    quality_3_label:'Jaar garantie', quality_3_desc:'Wij staan achter elke steek. Ons beddengoed is gemaakt om decennia mee te gaan, niet seizoenen.',
+    quality_4_label:'OEKO-TEX® 100', quality_4_desc:'Vrij van schadelijke stoffen. Veilig voor de gevoeligste huid, gecertificeerd door onafhankelijke instituten.',
+    best_eyebrow:'Meest geliefd', best_title:'Onze <em>bestsellers</em>', best_see_all:'Hele collectie',
+    pcard_btn:'Bekijk product', badge_bestseller:'Bestseller', badge_new:'Nieuw',
+    lookbook_eyebrow:'Inspiratie', lookbook_title:'Lookbook <em>2026</em>', lookbook_see_all:'Alle editorials',
+    lb_1:'Ochtendlicht · Nocturne', lb_2:'Stille luxe · Ivory', lb_3:'Porto atelier · 2026', lb_4:'Forest Linen · Groen', lb_5:'Detail · Egyptisch katoen',
+    why_eyebrow:'Transparantie', why_title:'Luxury Dream vs.<br><em>gemiddeld beddengoed</em>',
+    why_average:'Gemiddeld', why_ld:'Luxury Dream',
+    why_c1_cat:'Draaddichtheid', why_c1_avg:'200 TC draaddichtheid', why_c1_ld:'600 TC draaddichtheid',
+    why_c2_cat:'Herkomst katoen', why_c2_avg:'Kortvezelig katoen (China)', why_c2_ld:'Langvezelig Egyptisch katoen',
+    why_c3_cat:'Productie', why_c3_avg:'Machine-geproduceerd', why_c3_ld:'Handgemaakt, Porto Portugal',
+    why_c4_cat:'Levensduur', why_c4_avg:'1–2 jaar levensduur', why_c4_ld:'8 jaar garantie',
+    rev_eyebrow:'Klanten aan het woord', rev_title:'Wat onze klanten<br><em>zeggen</em>',
+    rev_score_count:'op basis van 312 beoordelingen',
+    rev_1:'"Ik heb in vijfsterrenhotels geslapen die niet zo lekker aanvoelen als dit dekbed. Absoluut de beste aankoop voor mijn slaapkamer ooit."',
+    rev_2:'"Na zes maanden dagelijks gebruik voelt het nog precies hetzelfde als de eerste nacht. Een investering die zichzelf terugbetaalt."',
+    rev_3:'"De verpakking alleen al ademt luxe. Maar het product zelf overtreft alles — zijdezacht, koel in de zomer, warm in de winter."',
+    email_eyebrow:'Exclusief voor nieuwsbriefleden', email_title:'Ontvang <em>10% korting</em><br>op uw eerste bestelling',
+    email_sub:'Schrijf u in en ontvang nieuws over nieuwe collecties, exclusieve aanbiedingen en slaaptips.',
+    email_placeholder:'Uw e-mailadres', email_btn:'Aanmelden',
+    email_disclaimer:'U kunt zich op elk moment afmelden. Geen spam, beloofd.',
+    footer_tag:'Handgemaakt beddengoed uit Portugal.<br>Omdat u de beste nachtrust verdient.',
+    footer_h1:'Collecties', footer_h2:'Informatie', footer_h3:'Service',
+    footer_f1_1:'Alle producten', footer_f1_5:'Bundels & Sets',
+    footer_f2_1:'Ons verhaal', footer_f2_2:'Materialen', footer_f2_3:'Maattabel',
+    footer_f3_1:'Bezorging', footer_f3_2:'Retourneren', footer_f3_3:'Garantie', footer_f3_4:'Contact',
+    footer_bottom_2:'Algemene voorwaarden · Privacy · Cookies',
+    cart_title:'Winkelwagen', cart_empty_text:'Je winkelwagen is leeg', cart_empty_link:'Bekijk collecties',
+    cart_subtotal:'Subtotaal', cart_shipping:'Verzending', cart_shipping_free:'Gratis',
+    cart_total:'Totaal', cart_checkout:'Veilig afrekenen', cart_trust:'🔒 Beveiligde betaling · iDEAL · Klarna',
+    account_title:'Mijn account', tab_login:'Inloggen', tab_register:'Nieuw account',
+    label_email:'E-mailadres', label_password:'Wachtwoord', label_firstname:'Voornaam',
+    login_btn:'Inloggen', register_btn:'Account aanmaken', forgot_pw:'Wachtwoord vergeten?',
+    acct_orders:'Mijn bestellingen', acct_address:'Adresgegevens', acct_wishlist:'Verlanglijst',
+    acct_settings:'Instellingen', logout_btn:'Uitloggen',
+  },
+  de: {
+    nav_collections:'Kollektionen', nav_materials:'Materialien', nav_about:'Über uns',
+    nav_search:'Suchen', nav_account:'Konto', nav_cart_label:'Warenkorb',
+    hero_eyebrow:'Luxusbettwäsche · Handgefertigt in Portugal · Ägyptische Baumwolle',
+    hero_title:'Jede Nacht wie ein<br><em>5-Sterne-Erlebnis</em>',
+    hero_sub:'600 TC Ägyptische Baumwolle · Handgefertigt · OEKO-TEX®',
+    hero_cta:'Kollektion entdecken',
+    col_eyebrow:'Unsere Kollektionen', col_title:'Entdecken Sie den<br><em>perfekten Schlaf</em>',
+    col_see_all:'Alle Kollektionen ansehen', col_view:'Ansehen',
+    story_eyebrow:'Unsere Geschichte',
+    story_quote:'In unseren Ateliers an der Douro webt jeder Faden die Geschichte generationenlangen Handwerks',
+    story_body:'Im Jahr 1987 begann unsere Reise in den Gassen von Porto. Was als kleine Webschule begann, wuchs zu einem der angesehensten Bettwäschehersteller Portugals. Jedes Stück wird noch immer auf alten Jacquard-Webstühlen handgewebt, aus der feinsten langstapeligen Baumwolle des Nildeltas.',
+    story_btn:'Unsere Geschichte lesen',
+    quality_eyebrow:'Warum Luxury Dream', quality_title:'Qualität, die Sie<br><em>spüren</em>',
+    quality_1_label:'Fadendichte', quality_1_desc:'Doppelt so dicht wie normale Bettwäsche. Je höher, desto weicher und langlebiger das Gewebe.',
+    quality_2_label:'Ägyptische Baumwolle', quality_2_desc:'Langstapelige Baumwolle aus dem Nildelta. Stärker, weicher und glänzender als gewöhnliche Baumwollsorten.',
+    quality_3_label:'Jahre Garantie', quality_3_desc:'Wir stehen hinter jedem Stich. Unsere Bettwäsche ist für Jahrzehnte gemacht, nicht Saisons.',
+    quality_4_label:'OEKO-TEX® 100', quality_4_desc:'Frei von Schadstoffen. Sicher für die empfindlichste Haut, zertifiziert von unabhängigen Instituten.',
+    best_eyebrow:'Am beliebtesten', best_title:'Unsere <em>Bestseller</em>', best_see_all:'Gesamte Kollektion',
+    pcard_btn:'Produkt ansehen', badge_bestseller:'Bestseller', badge_new:'Neu',
+    lookbook_eyebrow:'Inspiration', lookbook_title:'Lookbook <em>2026</em>', lookbook_see_all:'Alle Editorials',
+    lb_1:'Morgenlicht · Nocturne', lb_2:'Stiller Luxus · Ivory', lb_3:'Porto Atelier · 2026', lb_4:'Forest Linen · Grün', lb_5:'Detail · Ägyptische Baumwolle',
+    why_eyebrow:'Transparenz', why_title:'Luxury Dream vs.<br><em>normale Bettwäsche</em>',
+    why_average:'Durchschnitt', why_ld:'Luxury Dream',
+    why_c1_cat:'Fadendichte', why_c1_avg:'200 TC Fadendichte', why_c1_ld:'600 TC Fadendichte',
+    why_c2_cat:'Baumwollherkunft', why_c2_avg:'Kurzstapelige Baumwolle (China)', why_c2_ld:'Langstapelige ägyptische Baumwolle',
+    why_c3_cat:'Produktion', why_c3_avg:'Maschinell hergestellt', why_c3_ld:'Handgefertigt, Porto Portugal',
+    why_c4_cat:'Lebensdauer', why_c4_avg:'1–2 Jahre Lebensdauer', why_c4_ld:'8 Jahre Garantie',
+    rev_eyebrow:'Was unsere Kunden sagen', rev_title:'Kundenbewertungen<br><em>auf einen Blick</em>',
+    rev_score_count:'basierend auf 312 Bewertungen',
+    rev_1:'"Ich habe in Fünf-Sterne-Hotels geschlafen, die sich nicht so angenehm anfühlten. Absolut der beste Kauf für mein Schlafzimmer."',
+    rev_2:'"Nach sechs Monaten täglichem Gebrauch fühlt es sich noch genauso an wie in der ersten Nacht. Eine Investition, die sich auszahlt."',
+    rev_3:'"Schon die Verpackung atmet Luxus. Aber das Produkt selbst übertrifft alles — seidenweich, kühl im Sommer, warm im Winter."',
+    email_eyebrow:'Exklusiv für Newsletter-Abonnenten', email_title:'Erhalten Sie <em>10% Rabatt</em><br>auf Ihre erste Bestellung',
+    email_sub:'Melden Sie sich an und erhalten Sie Neuigkeiten über neue Kollektionen, exklusive Angebote und Schlaaftipps.',
+    email_placeholder:'Ihre E-Mail-Adresse', email_btn:'Anmelden',
+    email_disclaimer:'Sie können sich jederzeit abmelden. Kein Spam, versprochen.',
+    footer_tag:'Handgefertigte Bettwäsche aus Portugal.<br>Weil Sie den besten Schlaf verdienen.',
+    footer_h1:'Kollektionen', footer_h2:'Information', footer_h3:'Service',
+    footer_f1_1:'Alle Produkte', footer_f1_5:'Bundles & Sets',
+    footer_f2_1:'Unsere Geschichte', footer_f2_2:'Materialien', footer_f2_3:'Größentabelle',
+    footer_f3_1:'Versand', footer_f3_2:'Rückgabe', footer_f3_3:'Garantie', footer_f3_4:'Kontakt',
+    footer_bottom_2:'AGB · Datenschutz · Cookies',
+    cart_title:'Warenkorb', cart_empty_text:'Ihr Warenkorb ist leer', cart_empty_link:'Kollektionen ansehen',
+    cart_subtotal:'Zwischensumme', cart_shipping:'Versand', cart_shipping_free:'Kostenlos',
+    cart_total:'Gesamt', cart_checkout:'Sicher bezahlen', cart_trust:'🔒 Sichere Zahlung · Visa · Mastercard',
+    account_title:'Mein Konto', tab_login:'Anmelden', tab_register:'Neues Konto',
+    label_email:'E-Mail-Adresse', label_password:'Passwort', label_firstname:'Vorname',
+    login_btn:'Anmelden', register_btn:'Konto erstellen', forgot_pw:'Passwort vergessen?',
+    acct_orders:'Meine Bestellungen', acct_address:'Adressdaten', acct_wishlist:'Wunschliste',
+    acct_settings:'Einstellungen', logout_btn:'Abmelden',
+  },
+  en: {
+    nav_collections:'Collections', nav_materials:'Materials', nav_about:'About us',
+    nav_search:'Search', nav_account:'Account', nav_cart_label:'Cart',
+    hero_eyebrow:'Luxury Bedding · Handcrafted in Portugal · Egyptian Cotton',
+    hero_title:'Experience every night as a<br><em>5-star luxury</em>',
+    hero_sub:'600 TC Egyptian cotton · Handcrafted · OEKO-TEX®',
+    hero_cta:'Shop collections',
+    col_eyebrow:'Our collections', col_title:'Discover the<br><em>perfect sleep</em>',
+    col_see_all:'View all collections', col_view:'View',
+    story_eyebrow:'Our story',
+    story_quote:'In our ateliers along the Douro, every thread weaves the story of generations of craftsmanship',
+    story_body:"Our journey began in 1987 in the alleys of Porto. What started as a small weaving school grew into one of Portugal's most respected bedding manufacturers. Each piece is still handwoven on century-old Jacquard looms, from the finest long-staple cotton that the Nile Delta offers us.",
+    story_btn:'Read our story',
+    quality_eyebrow:'Why Luxury Dream', quality_title:'Quality you can<br><em>feel</em>',
+    quality_1_label:'Thread count', quality_1_desc:'Twice as dense as average bedding. The higher the count, the softer and more durable the fabric.',
+    quality_2_label:'Egyptian cotton', quality_2_desc:'Long-staple cotton from the Nile Delta. Stronger, softer and more lustrous than ordinary cotton varieties.',
+    quality_3_label:'Year warranty', quality_3_desc:'We stand behind every stitch. Our bedding is made to last decades, not seasons.',
+    quality_4_label:'OEKO-TEX® 100', quality_4_desc:'Free from harmful substances. Safe for the most sensitive skin, certified by independent institutes.',
+    best_eyebrow:'Most loved', best_title:'Our <em>bestsellers</em>', best_see_all:'Full collection',
+    pcard_btn:'View product', badge_bestseller:'Bestseller', badge_new:'New',
+    lookbook_eyebrow:'Inspiration', lookbook_title:'Lookbook <em>2026</em>', lookbook_see_all:'All editorials',
+    lb_1:'Morning light · Nocturne', lb_2:'Quiet luxury · Ivory', lb_3:'Porto atelier · 2026', lb_4:'Forest Linen · Green', lb_5:'Detail · Egyptian cotton',
+    why_eyebrow:'Transparency', why_title:'Luxury Dream vs.<br><em>average bedding</em>',
+    why_average:'Average', why_ld:'Luxury Dream',
+    why_c1_cat:'Thread count', why_c1_avg:'200 TC thread count', why_c1_ld:'600 TC thread count',
+    why_c2_cat:'Cotton origin', why_c2_avg:'Short-staple cotton (China)', why_c2_ld:'Long-staple Egyptian cotton',
+    why_c3_cat:'Production', why_c3_avg:'Machine-produced', why_c3_ld:'Handcrafted, Porto Portugal',
+    why_c4_cat:'Lifespan', why_c4_avg:'1–2 year lifespan', why_c4_ld:'8-year warranty',
+    rev_eyebrow:'What our customers say', rev_title:'Our customers<br><em>speak</em>',
+    rev_score_count:'based on 312 reviews',
+    rev_1:'"I have stayed in five-star hotels that don\'t feel as comfortable as this duvet. Absolutely the best purchase for my bedroom ever."',
+    rev_2:'"After six months of daily use, it still feels exactly the same as the first night. An investment that pays for itself."',
+    rev_3:'"Even the packaging breathes luxury. But the product itself surpasses everything — silky smooth, cool in summer, warm in winter."',
+    email_eyebrow:'Exclusive for newsletter subscribers', email_title:'Receive <em>10% off</em><br>your first order',
+    email_sub:'Sign up and receive news about new collections, exclusive offers and sleep tips.',
+    email_placeholder:'Your email address', email_btn:'Subscribe',
+    email_disclaimer:'You can unsubscribe at any time. No spam, promised.',
+    footer_tag:'Handcrafted bedding from Portugal.<br>Because you deserve the best night\'s sleep.',
+    footer_h1:'Collections', footer_h2:'Information', footer_h3:'Service',
+    footer_f1_1:'All products', footer_f1_5:'Bundles & Sets',
+    footer_f2_1:'Our story', footer_f2_2:'Materials', footer_f2_3:'Size guide',
+    footer_f3_1:'Shipping', footer_f3_2:'Returns', footer_f3_3:'Warranty', footer_f3_4:'Contact',
+    footer_bottom_2:'Terms & conditions · Privacy · Cookies',
+    cart_title:'Shopping cart', cart_empty_text:'Your cart is empty', cart_empty_link:'View collections',
+    cart_subtotal:'Subtotal', cart_shipping:'Shipping', cart_shipping_free:'Free',
+    cart_total:'Total', cart_checkout:'Secure checkout', cart_trust:'🔒 Secure payment · Visa · Mastercard',
+    account_title:'My account', tab_login:'Login', tab_register:'New account',
+    label_email:'Email address', label_password:'Password', label_firstname:'First name',
+    login_btn:'Login', register_btn:'Create account', forgot_pw:'Forgot password?',
+    acct_orders:'My orders', acct_address:'Address details', acct_wishlist:'Wishlist',
+    acct_settings:'Settings', logout_btn:'Log out',
+  }
+};
+
+let currentLang = localStorage.getItem('ld-lang') || 'nl';
+
+function setLang(lang) {
+  if (!T[lang]) return;
+  currentLang = lang;
+  localStorage.setItem('ld-lang', lang);
+  document.documentElement.lang = lang === 'nl' ? 'nl' : lang === 'de' ? 'de' : 'en';
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if (T[lang][k] !== undefined) el.textContent = T[lang][k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const k = el.getAttribute('data-i18n-html');
+    if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const k = el.getAttribute('data-i18n-placeholder');
+    if (T[lang][k] !== undefined) el.placeholder = T[lang][k];
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+  });
+}
+
+// Apply saved or default language on load
+setLang(currentLang);
+</script>
+
+<div id="cart-overlay" onclick="toggleCart()"></div>
+<div id="cart-panel">
+  <div class="cart-header">
+    <div class="cart-header-left">
+      <span class="cart-title" data-i18n="cart_title">Winkelwagen</span>
+      <span class="cart-badge" id="cartBadge">0</span>
+    </div>
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-body">
+    <div id="cartItems"></div>
+    <div class="cart-empty" id="cartEmpty">
+      <p class="cart-empty-icon">◇</p>
+      <p class="cart-empty-text" data-i18n="cart_empty_text">Je winkelwagen is leeg</p>
+      <a href="shop.html" class="cart-empty-link" data-i18n="cart_empty_link">Bekijk collecties</a>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total-row"><span data-i18n="cart_subtotal">Subtotaal</span><span id="cartSubtotal">€ 0</span></div>
+    <div class="cart-total-row"><span data-i18n="cart_shipping">Verzending</span><span class="cart-free-ship" data-i18n="cart_shipping_free">Gratis</span></div>
+    <div class="cart-total-row cart-total-main"><span data-i18n="cart_total">Totaal</span><span id="cartTotal">€ 0</span></div>
+    <button class="cart-checkout-btn" data-i18n="cart_checkout">Veilig afrekenen</button>
+    <p class="cart-trust-note" data-i18n="cart_trust">🔒 Beveiligde betaling · iDEAL · Klarna</p>
+  </div>
+</div>
+
+<div id="account-overlay" onclick="toggleAccount()"></div>
+<div id="account-panel">
+  <div class="account-header">
+    <span class="account-title" data-i18n="account_title">Mijn account</span>
+    <button class="account-close" onclick="toggleAccount()">✕</button>
+  </div>
+  <div class="account-body">
+    <div id="accountGuest">
+      <div class="account-tabs">
+        <button class="account-tab active" id="tabLogin" onclick="showAccountTab('login')" data-i18n="tab_login">Inloggen</button>
+        <button class="account-tab" id="tabRegister" onclick="showAccountTab('register')" data-i18n="tab_register">Nieuw account</button>
+      </div>
+      <div id="accountLoginForm">
+        <div class="form-group"><label data-i18n="label_email">E-mailadres</label><input type="email" id="loginEmail" placeholder="naam@voorbeeld.nl"></div>
+        <div class="form-group"><label data-i18n="label_password">Wachtwoord</label><input type="password" id="loginPassword" placeholder="••••••••"></div>
+        <span class="form-error" id="loginError"></span>
+        <button class="account-submit-btn" onclick="handleLogin()" data-i18n="login_btn">Inloggen</button>
+        <p class="form-note"><a href="#" data-i18n="forgot_pw">Wachtwoord vergeten?</a></p>
+      </div>
+      <div id="accountRegisterForm" style="display:none">
+        <div class="form-group"><label data-i18n="label_firstname">Voornaam</label><input type="text" id="regName" placeholder="Uw naam"></div>
+        <div class="form-group"><label data-i18n="label_email">E-mailadres</label><input type="email" id="regEmail" placeholder="naam@voorbeeld.nl"></div>
+        <div class="form-group"><label data-i18n="label_password">Wachtwoord</label><input type="password" id="regPassword" placeholder="Minimaal 6 tekens"></div>
+        <span class="form-error" id="regError"></span>
+        <button class="account-submit-btn" onclick="handleRegister()" data-i18n="register_btn">Account aanmaken</button>
+      </div>
+    </div>
+    <div id="accountLoggedIn" style="display:none">
+      <div class="account-welcome">
+        <p class="acct-avatar">◇</p>
+        <p class="acct-name" id="accountUserName"></p>
+        <p class="acct-email" id="accountUserEmail"></p>
+      </div>
+      <nav class="account-menu">
+        <a href="#" class="account-menu-item" data-i18n="acct_orders">Mijn bestellingen</a>
+        <a href="#" class="account-menu-item" data-i18n="acct_address">Adresgegevens</a>
+        <a href="#" class="account-menu-item" data-i18n="acct_wishlist">Verlanglijst</a>
+        <a href="#" class="account-menu-item" data-i18n="acct_settings">Instellingen</a>
+      </nav>
+      <button class="account-logout-btn" onclick="handleLogout()" data-i18n="logout_btn">Uitloggen</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
