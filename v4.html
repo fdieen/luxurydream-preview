@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxurydream</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:#0F0C08;font-family:'Jost',sans-serif;overflow-x:hidden}
+button{border:none;outline:none;cursor:pointer;font-family:inherit}
+
+/* PAGES */
+.pg{display:none;min-height:100vh}
+.pg.on{display:block}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;height:72px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 64px;background:rgba(15,12,8,.88);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(180,160,120,.12)}
+.logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;
+  letter-spacing:4px;text-transform:uppercase;color:#F0E8D0;cursor:pointer}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links span{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;
+  color:rgba(240,232,208,.55);cursor:pointer;transition:color .2s;user-select:none}
+.nav-links span:hover,.nav-links span.on{color:#F0E8D0}
+.nav-r{display:flex;gap:20px}
+.nav-r span{font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(240,232,208,.4);cursor:pointer}
+
+/* TYPOGRAPHY */
+.eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(184,156,92,.85)}
+h1.serif,h2.serif{font-family:'Cormorant Garamond',serif;font-weight:300;color:#F0E8D0;line-height:1.05}
+h1.serif{font-size:clamp(52px,8vw,96px)}
+h2.serif{font-size:clamp(36px,5vw,64px)}
+.italic{font-style:italic;color:rgba(240,232,208,.45)}
+p.body{font-size:14px;color:rgba(240,232,208,.55);line-height:1.85;font-weight:300}
+
+/* BUTTONS */
+.btn-outline{display:inline-flex;align-items:center;gap:10px;
+  padding:16px 40px;border:1px solid rgba(184,156,92,.45);background:transparent;
+  font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#F0E8D0;
+  transition:background .3s,border-color .3s}
+.btn-outline:hover{background:rgba(184,156,92,.12);border-color:rgba(184,156,92,.9)}
+
+/* CARDS */
+.card{position:relative;overflow:hidden;cursor:pointer;background:#1A1410}
+.card .bg{position:absolute;inset:0;background-size:cover;background-position:center;
+  transition:transform .7s cubic-bezier(.16,1,.3,1),filter .4s;filter:brightness(.58)}
+.card:hover .bg{transform:scale(1.05);filter:brightness(.42)}
+.card .grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,7,4,.94) 0%,transparent 55%)}
+.card .info{position:absolute;bottom:0;left:0;right:0;padding:28px 24px}
+.card .cta-hint{font-size:9px;letter-spacing:3px;text-transform:uppercase;
+  color:rgba(184,156,92,.8);margin-top:10px;opacity:0;transform:translateY(6px);
+  transition:opacity .3s,transform .3s}
+.card:hover .cta-hint{opacity:1;transform:translateY(0)}
+.prod-lbl{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(184,156,92,.75);margin-bottom:4px}
+.prod-name{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#F0E8D0;margin-bottom:4px}
+.prod-sub{font-size:11px;color:rgba(240,232,208,.5);margin-bottom:5px}
+.prod-price{font-size:13px;color:rgba(240,232,208,.75)}
+
+/* ═══ HOME ═══ */
+#pg-home{color:#F0E8D0}
+.hero{position:relative;height:100vh;display:flex;align-items:flex-end}
+.hero-bg{position:absolute;inset:0;
+  background:url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1800&q=85&auto=format') center/cover no-repeat;
+  filter:brightness(.45)}
+.hero-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,7,4,.88) 0%,rgba(10,7,4,.15) 55%,transparent 100%)}
+.hero-c{position:relative;z-index:2;padding:0 80px 80px}
+.hero-c .eyebrow{margin-bottom:18px}
+.hero-c h1{margin-bottom:36px}
+.scroll-hint{position:absolute;right:48px;bottom:80px;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(240,232,208,.3)}
+.scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,rgba(184,156,92,.6),transparent);
+  animation:sline 2s ease-in-out infinite}
+@keyframes sline{0%,100%{opacity:.6;transform:scaleY(1)}50%{opacity:1;transform:scaleY(.5)}}
+
+.home-brands{padding:120px 0 0}
+.sec-head{text-align:center;padding:0 80px;margin-bottom:64px}
+.sec-head .eyebrow{margin-bottom:16px}
+.brands-grid{display:grid;grid-template-columns:1fr 1fr}
+.brand-card{position:relative;height:68vh;overflow:hidden;cursor:pointer}
+.brand-card .bg{position:absolute;inset:0;background-size:cover;background-position:center;
+  transition:transform .8s cubic-bezier(.16,1,.3,1),filter .5s;filter:brightness(.5)}
+.brand-card:hover .bg{transform:scale(1.04);filter:brightness(.38)}
+.brand-card .grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,7,4,.92) 0%,transparent 55%)}
+.brand-card .c{position:absolute;bottom:0;left:0;right:0;padding:48px}
+.brand-sub{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(184,156,92,.8);margin-bottom:10px}
+.brand-nm{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:#F0E8D0;margin-bottom:10px}
+.brand-tag{font-size:13px;color:rgba(240,232,208,.6);margin-bottom:24px;line-height:1.5}
+.brand-link{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(184,156,92,.8);
+  display:flex;align-items:center;gap:8px;transition:gap .3s}
+.brand-card:hover .brand-link{gap:16px}
+
+.home-quote{padding:120px 80px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.quote-t{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.5vw,48px);
+  font-weight:300;font-style:italic;color:#F0E8D0;line-height:1.3}
+.quote-sig{margin-top:24px;font-family:'Cormorant Garamond',serif;font-size:16px;
+  font-style:italic;color:rgba(184,156,92,.8)}
+
+.home-featured{padding:0 80px 120px}
+.feat-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px}
+.feat-head h2{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:#F0E8D0}
+.feat-all{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(184,156,92,.7);cursor:pointer}
+.feat-all:hover{color:rgba(184,156,92,1)}
+.mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.mini-card{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:3/4;background:#1A1410}
+.mini-card .bg{position:absolute;inset:0;background-size:cover;background-position:center;
+  transition:transform .7s cubic-bezier(.16,1,.3,1),filter .4s;filter:brightness(.65)}
+.mini-card:hover .bg{transform:scale(1.06);filter:brightness(.45)}
+.mini-card .info{position:absolute;bottom:0;left:0;right:0;padding:20px;
+  background:linear-gradient(to top,rgba(10,7,4,.95) 0%,transparent 100%)}
+.mini-card .cta{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .3s}
+.mini-card:hover .cta{opacity:1}
+.mini-cta{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#F0E8D0;
+  border:1px solid rgba(240,232,208,.45);padding:12px 24px;backdrop-filter:blur(8px)}
+
+/* ═══ COLLECTION ═══ */
+#pg-coll{padding-top:72px}
+.coll-header{padding:64px 80px 0;border-bottom:1px solid rgba(180,160,120,.1)}
+.breadcrumb{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;
+  color:rgba(240,232,208,.3);margin-bottom:24px}
+.breadcrumb span{color:rgba(240,232,208,.65);cursor:pointer}
+.breadcrumb span:hover{color:#F0E8D0}
+.coll-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,6vw,80px);
+  font-weight:300;color:#F0E8D0;line-height:1;margin-bottom:40px}
+.coll-h1 em{font-style:italic;color:rgba(240,232,208,.38)}
+.filters{display:flex}
+.filter{padding:16px 0;margin-right:32px;font-size:10px;letter-spacing:3px;text-transform:uppercase;
+  color:rgba(240,232,208,.4);cursor:pointer;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+.filter:hover{color:rgba(240,232,208,.75)}
+.filter.on{color:#F0E8D0;border-color:rgba(184,156,92,.7)}
+
+.hero-band{display:grid;grid-template-columns:2fr 1fr;height:55vh;margin-bottom:2px}
+.hero-slot{position:relative;overflow:hidden;cursor:pointer}
+.hero-slot .bg{position:absolute;inset:0;background-size:cover;background-position:center;
+  transition:transform .8s cubic-bezier(.16,1,.3,1),filter .5s;filter:brightness(.52)}
+.hero-slot:hover .bg{transform:scale(1.04);filter:brightness(.4)}
+.hero-slot .grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,7,4,.9) 0%,transparent 55%)}
+.hero-slot .info{position:absolute;bottom:0;left:0;right:0;padding:40px 48px}
+.hero-slot.sm .info{padding:32px 36px}
+.hero-prod-nm{font-family:'Cormorant Garamond',serif;font-weight:300;color:#F0E8D0;line-height:1.1;margin-bottom:6px}
+.hero-slot .hero-prod-nm{font-size:44px}
+.hero-slot.sm .hero-prod-nm{font-size:30px}
+.hero-sub{font-size:12px;color:rgba(240,232,208,.5);margin-bottom:6px}
+.hero-price{font-size:14px;color:rgba(240,232,208,.75);margin-bottom:10px}
+.hero-cta{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(184,156,92,.8);
+  opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s}
+.hero-slot:hover .hero-cta{opacity:1;transform:translateY(0)}
+
+.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;padding-bottom:120px}
+.prod-grid .card{aspect-ratio:3/4}
+
+/* ═══ BRAND ═══ */
+.brand-pg{padding-top:72px}
+.brand-hero{position:relative;height:80vh;display:flex;align-items:flex-end}
+.brand-hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.42)}
+.brand-hero .grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,7,4,.95) 0%,transparent 55%)}
+.brand-hero .c{position:relative;z-index:2;padding:0 80px 80px}
+.brand-hero-from{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(184,156,92,.8);margin-bottom:16px}
+.brand-hero-nm{font-family:'Cormorant Garamond',serif;font-size:clamp(60px,10vw,120px);
+  font-weight:300;color:#F0E8D0;line-height:1;margin-bottom:16px}
+.brand-hero-tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;
+  color:rgba(240,232,208,.6);max-width:520px}
+.brand-story{display:grid;grid-template-columns:1fr 1fr;gap:80px;
+  padding:100px 80px;align-items:center;border-bottom:1px solid rgba(180,160,120,.1)}
+.story-lbl{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(184,156,92,.7);margin-bottom:20px}
+.story-h{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:#F0E8D0;
+  margin-bottom:28px;line-height:1.2}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;color:#F0E8D0;line-height:1;margin-bottom:6px}
+.stat-l{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(240,232,208,.4)}
+.brand-prods{padding:80px 80px 120px}
+.brand-prods h2{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:#F0E8D0;margin-bottom:48px}
+.brand-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.brand-grid .card{aspect-ratio:4/5}
+.brand-grid .card .info{padding:40px}
+.brand-nm-lg{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:#F0E8D0;margin-bottom:6px}
+
+/* ═══ PDP ═══ */
+#pg-pdp{padding-top:72px}
+.pdp-bc{padding:18px 80px;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;
+  color:rgba(240,232,208,.3);border-bottom:1px solid rgba(180,160,120,.1)}
+.pdp-bc span{color:rgba(240,232,208,.6);cursor:pointer}
+.pdp-bc span:hover{color:#F0E8D0}
+.pdp-layout{display:grid;grid-template-columns:58% 1fr;min-height:88vh}
+
+/* Gallery */
+.pdp-gal{position:relative}
+.pdp-gal-sticky{position:sticky;top:72px;height:calc(100vh - 72px);overflow:hidden;background:#14100C}
+.pdp-gal-sticky img{width:100%;height:100%;object-fit:cover;transition:opacity .3s}
+.thumbs{position:absolute;left:20px;top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;gap:8px;z-index:2}
+.thumb{width:56px;height:72px;overflow:hidden;cursor:pointer;
+  border:2px solid transparent;transition:border-color .3s,opacity .3s;opacity:.5}
+.thumb.on{border-color:rgba(184,156,92,.8);opacity:1}
+.thumb:hover{opacity:.85}
+.thumb img{width:100%;height:100%;object-fit:cover}
+
+/* Info */
+.pdp-info{padding:48px 60px 80px}
+.pdp-brand-lnk{font-size:10px;letter-spacing:3px;text-transform:uppercase;
+  color:rgba(184,156,92,.75);cursor:pointer;display:inline-block;margin-bottom:12px;transition:color .2s}
+.pdp-brand-lnk:hover{color:rgba(184,156,92,1)}
+.pdp-h1{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:#F0E8D0;line-height:1;margin-bottom:8px}
+.pdp-hsub{font-size:13px;color:rgba(240,232,208,.45);margin-bottom:28px}
+.pdp-pr{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:#F0E8D0;margin-bottom:32px}
+.pdp-pr small{font-size:11px;color:rgba(240,232,208,.35);font-family:'Jost',sans-serif;margin-left:8px}
+
+.opt{margin-bottom:28px}
+.opt-lbl{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(240,232,208,.4);margin-bottom:14px}
+.opt-lbl span{color:rgba(240,232,208,.8)}
+.swatches{display:flex;gap:8px;flex-wrap:wrap}
+.sw{width:32px;height:32px;border-radius:50%;cursor:pointer;position:relative;
+  border:2px solid transparent;transition:border-color .2s,transform .2s}
+.sw.on{border-color:rgba(184,156,92,.9);transform:scale(1.15)}
+.sw:hover:not(.on){transform:scale(1.1)}
+.sw-tip{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);
+  background:#1A1410;border:1px solid rgba(180,160,120,.2);
+  padding:4px 10px;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;
+  color:rgba(240,232,208,.8);white-space:nowrap;pointer-events:none;
+  opacity:0;transition:opacity .2s;z-index:10}
+.sw:hover .sw-tip{opacity:1}
+
+.sizes{display:flex;gap:8px;flex-wrap:wrap}
+.sz{padding:10px 16px;border:1px solid rgba(180,160,120,.18);
+  background:transparent;color:rgba(240,232,208,.65);font-size:12px;letter-spacing:1px;
+  cursor:pointer;transition:all .2s}
+.sz:hover{border-color:rgba(180,160,120,.5);color:#F0E8D0}
+.sz.on{border-color:rgba(184,156,92,.8);color:#F0E8D0;background:rgba(184,156,92,.06)}
+.sz.na{opacity:.22;cursor:not-allowed;text-decoration:line-through}
+
+.pdp-ctas{margin:32px 0;display:flex;flex-direction:column;gap:12px}
+.atc{padding:18px 32px;border:1px solid rgba(184,156,92,.45);background:transparent;
+  font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#F0E8D0;transition:all .3s}
+.atc:hover,.atc.ok{background:rgba(184,156,92,.12);border-color:rgba(184,156,92,.9)}
+.sample{padding:16px 32px;border:1px solid rgba(180,160,120,.14);background:transparent;
+  font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(240,232,208,.45);transition:all .3s}
+.sample:hover{color:rgba(240,232,208,.8);border-color:rgba(180,160,120,.35)}
+
+.trust{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:32px}
+.trust-i{display:flex;gap:10px;align-items:flex-start;padding:14px;border:1px solid rgba(180,160,120,.1)}
+.trust-ico{font-size:13px;color:rgba(184,156,92,.7);flex-shrink:0;margin-top:1px}
+.trust-lbl{font-size:11px;color:rgba(240,232,208,.5);line-height:1.4}
+
+.div{height:1px;background:rgba(180,160,120,.1);margin:28px 0}
+.brand-box{border:1px solid rgba(180,160,120,.12);padding:22px;cursor:pointer;
+  margin-bottom:28px;transition:border-color .3s}
+.brand-box:hover{border-color:rgba(184,156,92,.35)}
+.bb-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.bb-nm{font-family:'Cormorant Garamond',serif;font-size:20px;color:#F0E8D0}
+.bb-arrow{color:rgba(184,156,92,.6);font-size:11px;letter-spacing:2px}
+.bb-text{font-size:12px;color:rgba(240,232,208,.4);line-height:1.6}
+
+.acc-item{border-top:1px solid rgba(180,160,120,.12)}
+.acc-btn{width:100%;padding:18px 0;display:flex;justify-content:space-between;align-items:center;
+  background:transparent;border:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(240,232,208,.6);cursor:pointer;transition:color .2s}
+.acc-btn:hover,.acc-item.open .acc-btn{color:#F0E8D0}
+.acc-ico{width:16px;height:16px;position:relative;flex-shrink:0}
+.acc-ico::before,.acc-ico::after{content:'';position:absolute;background:rgba(184,156,92,.65);transition:transform .3s,opacity .3s}
+.acc-ico::before{width:16px;height:1px;top:50%;left:0;transform:translateY(-50%)}
+.acc-ico::after{width:1px;height:16px;left:50%;top:0;transform:translateX(-50%)}
+.acc-item.open .acc-ico::after{transform:translateX(-50%) rotate(90deg);opacity:0}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.acc-item.open .acc-body{max-height:500px}
+.acc-inner{padding:4px 0 22px}
+.spec-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
+.sk{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(240,232,208,.38);margin-bottom:2px}
+.sv{font-size:13px;color:rgba(240,232,208,.78)}
+.acc-list{list-style:none}
+.acc-list li{padding:7px 0;border-bottom:1px solid rgba(180,160,120,.07);font-size:13px;
+  color:rgba(240,232,208,.62);line-height:1.5;display:flex;gap:10px}
+.acc-list li::before{content:'—';color:rgba(184,156,92,.5);flex-shrink:0}
+
+.tex-section{padding:80px;border-top:1px solid rgba(180,160,120,.1)}
+.tex-section h2{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:#F0E8D0;margin-bottom:40px}
+.tex-section h2 em{font-style:italic;color:rgba(240,232,208,.4)}
+.tex-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.tex-item{position:relative;aspect-ratio:1;overflow:hidden}
+.tex-item img{width:100%;height:100%;object-fit:cover;filter:brightness(.65);transition:filter .4s}
+.tex-item:hover img{filter:brightness(.9)}
+.tex-lbl{position:absolute;bottom:12px;left:12px;font-size:9px;letter-spacing:2.5px;
+  text-transform:uppercase;color:rgba(240,232,208,.7)}
+
+.rel-section{padding:0 80px 120px}
+.rel-head{display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:40px;padding-bottom:20px;border-bottom:1px solid rgba(180,160,120,.1)}
+.rel-head h2{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:#F0E8D0}
+.rel-all{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(184,156,92,.7);cursor:pointer}
+.rel-all:hover{color:rgba(184,156,92,1)}
+.rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.rel-grid .card{aspect-ratio:3/4}
+
+/* STICKY */
+.sticky{position:fixed;bottom:0;left:0;right:0;z-index:500;
+  background:rgba(20,16,12,.95);backdrop-filter:blur(12px);
+  border-top:1px solid rgba(180,160,120,.15);
+  padding:16px 80px;display:flex;justify-content:space-between;align-items:center;
+  transform:translateY(100%);transition:transform .4s cubic-bezier(.16,1,.3,1)}
+.sticky.on{transform:translateY(0)}
+.sticky-nm{font-family:'Cormorant Garamond',serif;font-size:22px;color:#F0E8D0}
+.sticky-sub{font-size:10px;color:rgba(240,232,208,.4);letter-spacing:1.5px;margin-top:2px}
+.sticky-r{display:flex;gap:16px;align-items:center}
+.sticky-pr{font-family:'Cormorant Garamond',serif;font-size:24px;color:#F0E8D0}
+.sticky-btn{padding:14px 32px;border:1px solid rgba(184,156,92,.5);background:transparent;
+  font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#F0E8D0;transition:background .3s}
+.sticky-btn:hover{background:rgba(184,156,92,.12)}
+
+@media(max-width:900px){
+  nav{padding:0 24px}
+  .nav-links{display:none}
+  .hero-c{padding:0 32px 64px}
+  .brands-grid,.brand-story{grid-template-columns:1fr}
+  .home-quote{grid-template-columns:1fr;padding:60px 32px}
+  .home-featured{padding:0 32px 80px}
+  .mini-grid{grid-template-columns:1fr 1fr}
+  .coll-header{padding:48px 24px 0}
+  .hero-band{grid-template-columns:1fr;grid-template-rows:1fr 1fr}
+  .prod-grid{grid-template-columns:1fr 1fr}
+  .brand-hero .c{padding:0 32px 56px}
+  .brand-prods{padding:48px 32px 80px}
+  .brand-grid{grid-template-columns:1fr}
+  .pdp-bc{padding:16px 24px}
+  .pdp-layout{grid-template-columns:1fr}
+  .pdp-gal-sticky{position:relative;height:70vw;top:auto}
+  .pdp-info{padding:32px 24px 64px}
+  .tex-section,.rel-section{padding-left:24px;padding-right:24px}
+  .tex-grid{grid-template-columns:1fr 1fr}
+  .rel-grid{grid-template-columns:1fr 1fr}
+  .sticky{padding:16px 24px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="logo" onclick="show('home')">Luxurydream</span>
+  <ul class="nav-links">
+    <li><span id="nl-coll" onclick="show('coll')">Collectie</span></li>
+    <li><span id="nl-amalia" onclick="show('amalia')">Amalia</span></li>
+    <li><span id="nl-candia" onclick="show('candia')">Candia</span></li>
+    <li><span onclick="show('home')">Over ons</span></li>
+  </ul>
+  <div class="nav-r">
+    <span>Zoeken</span>
+    <span id="cart-trigger" onclick="openCart()" style="cursor:pointer">Tas (<span id="cart-count">0</span>)</span>
+  </div>
+</nav>
+
+<!-- CART DRAWER -->
+<div id="cart-overlay" onclick="closeCart()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1998;backdrop-filter:blur(2px)"></div>
+<div id="cart-drawer" style="position:fixed;top:0;right:0;bottom:0;width:420px;max-width:100vw;background:#12100C;z-index:1999;transform:translateX(100%);transition:transform .4s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column;border-left:1px solid rgba(180,160,120,.12)">
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:28px 32px;border-bottom:1px solid rgba(180,160,120,.1)">
+    <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#F0E8D0;letter-spacing:2px">Uw selectie</span>
+    <span onclick="closeCart()" style="cursor:pointer;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(240,232,208,.4)">Sluiten ×</span>
+  </div>
+  <div id="cart-items" style="flex:1;overflow-y:auto;padding:24px 32px"></div>
+  <div id="cart-footer" style="padding:24px 32px;border-top:1px solid rgba(180,160,120,.1);display:none">
+    <div style="display:flex;justify-content:space-between;margin-bottom:20px">
+      <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(240,232,208,.45)">Totaal</span>
+      <span id="cart-total" style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#F0E8D0"></span>
+    </div>
+    <button onclick="closeCart()" style="width:100%;padding:18px;border:1px solid rgba(184,156,92,.45);background:transparent;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#F0E8D0;cursor:pointer;transition:background .3s">Naar afrekenen →</button>
+  </div>
+</div>
+
+<!-- ═══ HOME ═══ -->
+<div id="pg-home" class="pg on">
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grad"></div>
+    <div class="hero-c">
+      <div class="eyebrow">Luxurydream · Slaapspecialist</div>
+      <h1 class="serif">Nachtrust <em class="italic">op</em><br>het niveau<br>van <em class="italic">een hotel</em></h1>
+      <button class="btn-outline" onclick="show('coll')">Ontdek de collectie →</button>
+    </div>
+    <div class="scroll-hint"><div class="scroll-line"></div><span>Scroll</span></div>
+  </section>
+
+  <section class="home-brands">
+    <div class="sec-head">
+      <div class="eyebrow">Gecureerd voor u</div>
+      <h2 class="serif">Twee merken. <em class="italic">Één missie.</em></h2>
+    </div>
+    <div class="brands-grid">
+      <div class="brand-card" onclick="show('amalia')">
+        <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1600618528240-fb9fc964b853?w=1200&q=80&auto=format')"></div>
+        <div class="grad"></div>
+        <div class="c">
+          <div class="brand-sub">Handgeweven in Portugal</div>
+          <div class="brand-nm">Amalia</div>
+          <div class="brand-tag">Vier generaties ambacht — elk stuk geweven door meesters.</div>
+          <div class="brand-link">Bekijk collectie →</div>
+        </div>
+      </div>
+      <div class="brand-card" onclick="show('candia')">
+        <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1200&q=80&auto=format')"></div>
+        <div class="grad"></div>
+        <div class="c">
+          <div class="brand-sub">Handgemaakt in Griekenland</div>
+          <div class="brand-nm">Candia</div>
+          <div class="brand-tag">Het enige merk ter wereld met olijfolie-behandeling.</div>
+          <div class="brand-link">Bekijk collectie →</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-quote">
+    <p class="quote-t">"Wij geloven dat de slaap niet begint als u uw ogen sluit, maar als u uw bed instapt."</p>
+    <div>
+      <p class="body">Luxurydream is opgericht om iedereen toegang te geven tot de beste slaap van zijn leven. Niet als marketingbelofte, maar als handwerk. Wij selecteren uitsluitend merken die wij zelf zouden willen gebruiken.</p>
+      <p class="quote-sig">— Hans de Jong, oprichter Luxurydream</p>
+    </div>
+  </section>
+
+  <section class="home-featured">
+    <div class="feat-head">
+      <h2>Aanbevolen</h2>
+      <span class="feat-all" onclick="show('coll')">Alles bekijken →</span>
+    </div>
+    <div class="mini-grid">
+      <div class="mini-card" onclick="loadPdp('brisa')">
+        <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80&auto=format')"></div>
+        <div class="info"><div class="prod-lbl">Amalia · Portugal</div><div class="prod-name">Brisa</div><div class="prod-price">Vanaf €169</div></div>
+        <div class="cta"><div class="mini-cta">Bekijk product</div></div>
+      </div>
+      <div class="mini-card" onclick="loadPdp('serena')">
+        <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&q=80&auto=format')"></div>
+        <div class="info"><div class="prod-lbl">Amalia · Portugal</div><div class="prod-name">Serena</div><div class="prod-price">Vanaf €245</div></div>
+        <div class="cta"><div class="mini-cta">Bekijk product</div></div>
+      </div>
+      <div class="mini-card" onclick="loadPdp('prestige')">
+        <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&q=80&auto=format')"></div>
+        <div class="info"><div class="prod-lbl">Candia · Griekenland</div><div class="prod-name">Prestige 1000</div><div class="prod-price">Vanaf €1.495</div></div>
+        <div class="cta"><div class="mini-cta">Bekijk product</div></div>
+      </div>
+      <div class="mini-card" onclick="loadPdp('natura')">
+        <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1540518614846-7eded433c457?w=600&q=80&auto=format')"></div>
+        <div class="info"><div class="prod-lbl">Candia · Griekenland</div><div class="prod-name">Natura Comfort</div><div class="prod-price">Vanaf €595</div></div>
+        <div class="cta"><div class="mini-cta">Bekijk product</div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ COLLECTION ═══ -->
+<div id="pg-coll" class="pg">
+  <div class="coll-header">
+    <div class="breadcrumb"><span onclick="show('home')">Home</span> · <span>Collectie</span></div>
+    <h1 class="coll-h1">Onze <em>collectie</em></h1>
+    <div class="filters">
+      <div class="filter on" onclick="setFilter(this,'all')">Alles</div>
+      <div class="filter" onclick="setFilter(this,'beddengoed')">Beddengoed</div>
+      <div class="filter" onclick="setFilter(this,'matrassen')">Matrassen</div>
+      <div class="filter" onclick="setFilter(this,'toppers')">Toppers</div>
+    </div>
+  </div>
+
+  <div id="coll-hero" class="hero-band">
+    <div class="hero-slot" onclick="loadPdp('brisa')">
+      <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1400&q=85&auto=format')"></div>
+      <div class="grad"></div>
+      <div class="info">
+        <div class="eyebrow" style="margin-bottom:10px">Amalia · Portugal · Nieuw</div>
+        <div class="hero-prod-nm">Brisa</div>
+        <div class="hero-sub">Linnen Dekbedovertrek</div>
+        <div class="hero-price">Vanaf €169</div>
+        <div class="hero-cta">Bekijk product →</div>
+      </div>
+    </div>
+    <div class="hero-slot sm" onclick="loadPdp('prestige')">
+      <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=900&q=80&auto=format')"></div>
+      <div class="grad"></div>
+      <div class="info">
+        <div class="eyebrow" style="margin-bottom:10px">Candia · Griekenland</div>
+        <div class="hero-prod-nm" style="font-size:30px">Prestige 1000</div>
+        <div class="hero-sub">Handgemaakte Matras</div>
+        <div class="hero-price">Vanaf €1.495</div>
+        <div class="hero-cta">Bekijk product →</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prod-grid">
+    <div class="card" data-cat="beddengoed" onclick="loadPdp('brisa')">
+      <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=700&q=80&auto=format')"></div>
+      <div class="grad"></div>
+      <div class="info"><div class="prod-lbl">Amalia · Portugal</div><div class="prod-name">Brisa</div><div class="prod-sub">Linnen Dekbedovertrek</div><div class="prod-price">Vanaf €169</div><div class="cta-hint">Bekijk product →</div></div>
+    </div>
+    <div class="card" data-cat="beddengoed" onclick="loadPdp('serena')">
+      <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=700&q=80&auto=format')"></div>
+      <div class="grad"></div>
+      <div class="info"><div class="prod-lbl">Amalia · Portugal</div><div class="prod-name">Serena</div><div class="prod-sub">Katoensatijn Dekbedovertrek</div><div class="prod-price">Vanaf €245</div><div class="cta-hint">Bekijk product →</div></div>
+    </div>
+    <div class="card" data-cat="matrassen" onclick="loadPdp('prestige')">
+      <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=700&q=80&auto=format')"></div>
+      <div class="grad"></div>
+      <div class="info"><div class="prod-lbl">Candia · Griekenland</div><div class="prod-name">Prestige 1000</div><div class="prod-sub">Handgemaakte Matras</div><div class="prod-price">Vanaf €1.895</div><div class="cta-hint">Bekijk product →</div></div>
+    </div>
+    <div class="card" data-cat="toppers" onclick="loadPdp('natura')">
+      <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1540518614846-7eded433c457?w=700&q=80&auto=format')"></div>
+      <div class="grad"></div>
+      <div class="info"><div class="prod-lbl">Candia · Griekenland</div><div class="prod-name">Natura Comfort</div><div class="prod-sub">Wollen Topper</div><div class="prod-price">Vanaf €595</div><div class="cta-hint">Bekijk product →</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ AMALIA ═══ -->
+<div id="pg-amalia" class="pg">
+  <div class="brand-pg">
+    <section class="brand-hero">
+      <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1600618528240-fb9fc964b853?w=1800&q=85&auto=format')"></div>
+      <div class="grad"></div>
+      <div class="c">
+        <div class="brand-hero-from">Handgeweven in Portugal</div>
+        <h1 class="brand-hero-nm">Amalia</h1>
+        <p class="brand-hero-tag">Vier generaties ambacht in elk draad geweven</p>
+      </div>
+    </section>
+    <div class="brand-story">
+      <div>
+        <div class="story-lbl">Het verhaal</div>
+        <h2 class="story-h">Waarom wij<br>Amalia voeren</h2>
+        <p class="body">Amalia is een Portugees familiebedrijf dat al meer dan 80 jaar beddengoed weeft in de Minho-regio. Elk stuk begint als ruwe vlasvezels en wordt door de handen van ervaren wevers tot het fijnste linnen — zacht, duurzaam, en elke was meer thuis op uw bed.</p>
+      </div>
+      <div class="stats">
+        <div><div class="stat-n">80+</div><div class="stat-l">Jaar vakmanschap</div></div>
+        <div><div class="stat-n">100%</div><div class="stat-l">Europees vlas</div></div>
+        <div><div class="stat-n">3e</div><div class="stat-l">Generatie wevers</div></div>
+        <div><div class="stat-n">OEKO</div><div class="stat-l">TEX gecertificeerd</div></div>
+      </div>
+    </div>
+    <section class="brand-prods">
+      <h2>Amalia producten</h2>
+      <div class="brand-grid">
+        <div class="card" onclick="loadPdp('brisa')">
+          <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=900&q=80&auto=format')"></div>
+          <div class="grad"></div>
+          <div class="info"><div class="prod-lbl">Linnen Dekbedovertrek</div><div class="brand-nm-lg">Brisa</div><div class="prod-sub">Gewassen Europees vlas · 100% linnen</div><div class="prod-price">Vanaf €169</div><div class="cta-hint">Bekijk & bestel →</div></div>
+        </div>
+        <div class="card" onclick="loadPdp('serena')">
+          <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=900&q=80&auto=format')"></div>
+          <div class="grad"></div>
+          <div class="info"><div class="prod-lbl">Katoensatijn Dekbedovertrek</div><div class="brand-nm-lg">Serena</div><div class="prod-sub">Egyptisch katoen · 400 draaddichtheid</div><div class="prod-price">Vanaf €245</div><div class="cta-hint">Bekijk & bestel →</div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- ═══ CANDIA ═══ -->
+<div id="pg-candia" class="pg">
+  <div class="brand-pg">
+    <section class="brand-hero">
+      <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1800&q=85&auto=format')"></div>
+      <div class="grad"></div>
+      <div class="c">
+        <div class="brand-hero-from">Handgemaakt in Griekenland</div>
+        <h1 class="brand-hero-nm">Candia</h1>
+        <p class="brand-hero-tag">Het enige merk ter wereld met olijfolie-behandeling</p>
+      </div>
+    </section>
+    <div class="brand-story">
+      <div>
+        <div class="story-lbl">Het verhaal</div>
+        <h2 class="story-h">Waarom wij<br>Candia voeren</h2>
+        <p class="body">Candiastrom is het enige merk ter wereld dat olijfolie verwerkt in de productie — voor een antibacterieel effect zonder chemicaliën. Elke matras wordt met de hand gemaakt, zonder lijm, uitsluitend van natuurlijke materialen: wol, vlas, kamelenwol en paardenhaar.</p>
+      </div>
+      <div class="stats">
+        <div><div class="stat-n">4e</div><div class="stat-l">Generatie</div></div>
+        <div><div class="stat-n">0g</div><div class="stat-l">Lijm gebruikt</div></div>
+        <div><div class="stat-n">100%</div><div class="stat-l">Natuurlijk</div></div>
+        <div><div class="stat-n">15j</div><div class="stat-l">Garantie</div></div>
+      </div>
+    </div>
+    <section class="brand-prods">
+      <h2>Candia producten</h2>
+      <div class="brand-grid">
+        <div class="card" onclick="loadPdp('prestige')">
+          <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=900&q=80&auto=format')"></div>
+          <div class="grad"></div>
+          <div class="info"><div class="prod-lbl">Handgemaakte Matras</div><div class="brand-nm-lg">Prestige 1000</div><div class="prod-sub">Olijfolie-behandeld vlas · wol · paardenhaar</div><div class="prod-price">Vanaf €1.895</div><div class="cta-hint">Bekijk & bestel →</div></div>
+        </div>
+        <div class="card" onclick="loadPdp('natura')">
+          <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1540518614846-7eded433c457?w=900&q=80&auto=format')"></div>
+          <div class="grad"></div>
+          <div class="info"><div class="prod-lbl">Wollen Topper</div><div class="brand-nm-lg">Natura Comfort</div><div class="prod-sub">Merino wol · 100% biologisch</div><div class="prod-price">Vanaf €595</div><div class="cta-hint">Bekijk & bestel →</div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- ═══ PDP ═══ -->
+<div id="pg-pdp" class="pg">
+  <div class="pdp-bc" id="pdp-bc"></div>
+  <div class="pdp-layout">
+    <div class="pdp-gal">
+      <div class="pdp-gal-sticky">
+        <img id="pdp-img" src="" alt="">
+        <div class="thumbs" id="pdp-thumbs"></div>
+      </div>
+    </div>
+    <div class="pdp-info">
+      <div class="pdp-brand-lnk" id="pdp-brand-lnk"></div>
+      <h1 class="pdp-h1" id="pdp-h1"></h1>
+      <div class="pdp-hsub" id="pdp-hsub"></div>
+      <div class="pdp-pr" id="pdp-pr"></div>
+      <div class="opt">
+        <div class="opt-lbl">Kleur <span id="col-lbl"></span></div>
+        <div class="swatches" id="swatches"></div>
+      </div>
+      <div class="opt">
+        <div class="opt-lbl">Maat <span id="sz-lbl"></span></div>
+        <div class="sizes" id="sizes"></div>
+      </div>
+      <div class="pdp-ctas">
+        <button class="atc" id="atc-btn" onclick="addCart()">In winkelmand →</button>
+        <button class="sample">◇  Gratis staalsamples aanvragen</button>
+      </div>
+      <div class="trust">
+        <div class="trust-i"><span class="trust-ico">◎</span><span class="trust-lbl">30-nachten garantie</span></div>
+        <div class="trust-i"><span class="trust-ico">◇</span><span class="trust-lbl">Gratis retour</span></div>
+        <div class="trust-i"><span class="trust-ico">▽</span><span class="trust-lbl">Persoonlijk advies</span></div>
+        <div class="trust-i"><span class="trust-ico">✦</span><span class="trust-lbl">Verzekerd verzonden</span></div>
+      </div>
+      <div class="div"></div>
+      <div class="brand-box" id="brand-box"></div>
+      <div id="pdp-acc"></div>
+    </div>
+  </div>
+
+  <section class="tex-section">
+    <h2>Textuur & <em>detail</em></h2>
+    <div class="tex-grid">
+      <div class="tex-item"><img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&q=80&auto=format" alt=""><div class="tex-lbl">Weefstructuur</div></div>
+      <div class="tex-item"><img src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=600&q=80&auto=format" alt=""><div class="tex-lbl">Satijn glans</div></div>
+      <div class="tex-item"><img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=600&q=80&auto=format" alt=""><div class="tex-lbl">Knoopsluiting</div></div>
+      <div class="tex-item"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80&auto=format" alt=""><div class="tex-lbl">Zoomafwerking</div></div>
+    </div>
+  </section>
+
+  <section class="rel-section">
+    <div class="rel-head">
+      <h2>Compleet de look</h2>
+      <span class="rel-all" onclick="show('coll')">Alles bekijken →</span>
+    </div>
+    <div class="rel-grid" id="rel-grid"></div>
+  </section>
+</div>
+
+<!-- Sticky bar -->
+<div class="sticky" id="sticky">
+  <div>
+    <div class="sticky-nm" id="sticky-nm"></div>
+    <div class="sticky-sub" id="sticky-sub"></div>
+  </div>
+  <div class="sticky-r">
+    <div class="sticky-pr" id="sticky-pr"></div>
+    <button class="sticky-btn" onclick="addCart()">In winkelmand →</button>
+  </div>
+</div>
+
+<script>
+var PRODS = {
+  brisa: {
+    brand:'amalia', brandNm:'Amalia', brandSub:'Handgeweven in Portugal',
+    label:'Amalia · Portugal', name:'Brisa', sub:'Linnen Dekbedovertrek',
+    imgs:[
+      'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=900&q=80&auto=format',
+      'https://images.unsplash.com/photo-1588528402605-1f3a4f5a01f0?w=900&q=80&auto=format',
+      'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=900&q=80&auto=format',
+      'https://images.unsplash.com/photo-1600618528240-fb9fc964b853?w=900&q=80&auto=format',
+      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=900&q=80&auto=format'
+    ],
+    colors:[{n:'Naturel',h:'#EEE5D0',i:0},{n:'Wit',h:'#F5F2EC',i:2},{n:'Greige',h:'#C8BFB0',i:3},{n:'Nacht',h:'#2C2420',i:4},{n:'Sage',h:'#B8C4B0',i:1}],
+    sizes:[{l:'140×200',p:159,na:1},{l:'140×220',p:169},{l:'200×220',p:189},{l:'240×220',p:219},{l:'260×240',p:239}],
+    specs:[['Materiaal','100% Europees vlas'],['Afwerking','Gewassen & stonewashed'],['Sluiting','Verborgen knoopsluiting'],['Herkomst','Geweven in Portugal'],['Keurmerk','OEKO-TEX Standard 100'],['Gewicht','185 g/m²']],
+    why:['Direct zacht — geen inwasperiode','Zachter bij elke wasbeurt','Thermoregulerend: koel & warm','Decennia meegaand bij goede zorg','Hypoallergeen van nature']
+  },
+  serena: {
+    brand:'amalia', brandNm:'Amalia', brandSub:'Handgeweven in Portugal',
+    label:'Amalia · Portugal', name:'Serena', sub:'Katoensatijn Dekbedovertrek',
+    imgs:[
+      'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=900&q=80&auto=format',
+      'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=900&q=80&auto=format',
+      'https://images.unsplash.com/photo-1491336477066-31156b5e4f35?w=900&q=80&auto=format',
+      'https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=900&q=80&auto=format',
+      'https://images.unsplash.com/photo-1589834390005-5d4d9a74a38b?w=900&q=80&auto=format'
+    ],
+    colors:[{n:'Champagne',h:'#F5EDD0',i:0},{n:'Ivoor',h:'#F5F2EC',i:1},{n:'Stone',h:'#C8BFB0',i:2},{n:'Mist',h:'#B8C4C8',i:3}],
+    sizes:[{l:'140×200',p:215},{l:'140×220',p:225},{l:'200×220',p:245},{l:'240×220',p:285},{l:'260×240',p:315}],
+    specs:[['Materiaal','Egyptisch katoen 400TC'],['Afwerking','Satijnweving, zachte glans'],['Sluiting','Parelmoer knopen'],['Herkomst','Geweven in Portugal'],['Keurmerk','OEKO-TEX Standard 100'],['Gewicht','145 g/m²']],
+    why:['Fluweelzachte satijnweving','Luchtig én warm in alle seizoenen','Wasbaar op 60°C','Behoudt glans na 100+ wassen','Geschikt voor gevoelige huid']
+  },
+  prestige: {
+    brand:'candia', brandNm:'Candia', brandSub:'Handgemaakt in Griekenland',
+    label:'Candia · Griekenland', name:'Prestige 1000', sub:'Handgemaakte Matras',
+    imgs:[
+      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=900&q=80&auto=format',
+      'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=900&q=80&auto=format',
+      'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80&auto=format',
+      'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=900&q=80&auto=format',
+      'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=900&q=80&auto=format'
+    ],
+    colors:[{n:'Naturel',h:'#F0E8D0',i:0},{n:'Ecru',h:'#EDE5D0',i:1}],
+    sizes:[{l:'80×200',p:1495},{l:'90×200',p:1595},{l:'140×200',p:1895},{l:'160×200',p:2195},{l:'180×200',p:2395}],
+    specs:[['Kern','Handgerolde wol + vlas'],['Oppervlak','Olijfolie-behandeld linnen'],['Afwerking','Handgestikt kantwerk'],['Herkomst','Handgemaakt in Griekenland'],['Garantie','15 jaar'],['Hoogte','28 cm']],
+    why:['Antibacterieel zonder chemicaliën','Geen lijm — 100% mechanisch gebonden','Past zich aan uw lichaam aan','Elke matras uniek, met de hand gemaakt','Bijzonder geschikt bij ruggenproblemen']
+  },
+  natura: {
+    brand:'candia', brandNm:'Candia', brandSub:'Handgemaakt in Griekenland',
+    label:'Candia · Griekenland', name:'Natura Comfort', sub:'Wollen Topper',
+    imgs:[
+      'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=900&q=80&auto=format',
+      'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=900&q=80&auto=format',
+      'https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=900&q=80&auto=format',
+      'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=900&q=80&auto=format',
+      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=900&q=80&auto=format'
+    ],
+    colors:[{n:'Naturel',h:'#F0E8D0',i:0}],
+    sizes:[{l:'80×200',p:495},{l:'90×200',p:545},{l:'140×200',p:595},{l:'160×200',p:695},{l:'180×200',p:745}],
+    specs:[['Materiaal','Merino wol · biologisch'],['Afwerking','Handgestikt'],['Dikte','6 cm'],['Herkomst','Griekenland'],['Keurmerk','GOTS biologisch'],['Gewicht','1200 g/m²']],
+    why:['Temperatuurregulatie de hele nacht','Vochtafvoer zonder synthetische vezels','Anti-stofmijt van nature','Wasbaar op 30°C, wol-programma','Synergiewerking met Candia matras']
+  }
+};
+
+var curProd = null, curColor = 0, curSize = 2, stickyObs = null;
+
+function show(pg) {
+  var pages = document.querySelectorAll('.pg');
+  for (var i = 0; i < pages.length; i++) pages[i].classList.remove('on');
+  var el = document.getElementById('pg-' + pg);
+  if (el) el.classList.add('on');
+  var nls = document.querySelectorAll('.nav-links span');
+  for (var i = 0; i < nls.length; i++) nls[i].classList.remove('on');
+  if (pg === 'coll' && document.getElementById('nl-coll')) document.getElementById('nl-coll').classList.add('on');
+  if (pg === 'amalia' && document.getElementById('nl-amalia')) document.getElementById('nl-amalia').classList.add('on');
+  if (pg === 'candia' && document.getElementById('nl-candia')) document.getElementById('nl-candia').classList.add('on');
+  document.getElementById('sticky').classList.remove('on');
+  window.scrollTo(0, 0);
+}
+
+function loadPdp(id) {
+  curProd = PRODS[id];
+  if (!curProd) return;
+  curColor = 0; curSize = 2;
+
+  // breadcrumb
+  var bcEl = document.getElementById('pdp-bc');
+  bcEl.innerHTML = '';
+  var s1 = document.createElement('span'); s1.textContent = 'Home'; s1.onclick = function(){ show('home'); }; bcEl.appendChild(s1);
+  bcEl.appendChild(document.createTextNode(' · '));
+  var s2 = document.createElement('span'); s2.textContent = 'Collectie'; s2.onclick = function(){ show('coll'); }; bcEl.appendChild(s2);
+  bcEl.appendChild(document.createTextNode(' · '));
+  var s3 = document.createElement('span'); s3.textContent = curProd.brandNm; s3.onclick = function(){ show(curProd.brand); }; bcEl.appendChild(s3);
+  bcEl.appendChild(document.createTextNode(' · ' + curProd.name));
+
+  // brand link
+  var blEl = document.getElementById('pdp-brand-lnk');
+  blEl.textContent = curProd.brandNm + ' · ' + curProd.brandSub + ' →';
+  blEl.onclick = function(){ show(curProd.brand); };
+
+  document.getElementById('pdp-h1').textContent = curProd.name;
+  document.getElementById('pdp-hsub').textContent = curProd.sub;
+
+  // main image
+  document.getElementById('pdp-img').src = curProd.imgs[0];
+
+  // thumbnails
+  var thumbsEl = document.getElementById('pdp-thumbs');
+  thumbsEl.innerHTML = '';
+  for (var i = 0; i < curProd.imgs.length; i++) {
+    (function(idx) {
+      var t = document.createElement('div');
+      t.className = 'thumb' + (idx === 0 ? ' on' : '');
+      t.id = 'th-' + idx;
+      var img = document.createElement('img');
+      img.src = curProd.imgs[idx];
+      t.appendChild(img);
+      t.onclick = function() { switchImg(idx); };
+      thumbsEl.appendChild(t);
+    })(i);
+  }
+
+  // colors
+  renderColors();
+  // sizes
+  renderSizes();
+  // price
+  updatePrice();
+
+  // brand box
+  var bbEl = document.getElementById('brand-box');
+  bbEl.innerHTML = '<div class="bb-top"><div class="bb-nm">' + curProd.brandNm + '</div><div class="bb-arrow">Lees het verhaal →</div></div><div class="bb-text">' + curProd.brandSub + '</div>';
+  bbEl.onclick = function(){ show(curProd.brand); };
+
+  // accordion
+  var accData = [
+    {t: 'Materiaal & samenstelling', specs: curProd.specs},
+    {t: 'Waarom ' + curProd.name + ' bijzonder is', list: curProd.why},
+    {t: 'Verzorging & wassen', list: ['40°C, delicaat programma','Niet bleken','Tumble dry laag of luchtdrogen','Licht strijken of linnenlook behouden']},
+    {t: 'Verzending & retour', list: ['Gratis verzending NL & BE','1–3 werkdagen via DHL','Verpakt in linnenzakje','30-nachten garantie','Retour: ophaalservice, geen kosten']}
+  ];
+  var accEl = document.getElementById('pdp-acc');
+  accEl.innerHTML = '';
+  for (var i = 0; i < accData.length; i++) {
+    (function(idx, item) {
+      var wrap = document.createElement('div');
+      wrap.className = 'acc-item' + (idx === 0 ? ' open' : '');
+      wrap.id = 'acc-' + idx;
+      var btn = document.createElement('button');
+      btn.className = 'acc-btn';
+      btn.innerHTML = item.t + '<div class="acc-ico"></div>';
+      btn.onclick = function() {
+        var el = document.getElementById('acc-' + idx);
+        el.classList.toggle('open');
+      };
+      var body = document.createElement('div');
+      body.className = 'acc-body';
+      var inner = document.createElement('div');
+      inner.className = 'acc-inner';
+      if (item.specs) {
+        var sg = document.createElement('div');
+        sg.className = 'spec-grid';
+        for (var j = 0; j < item.specs.length; j++) {
+          var cell = document.createElement('div');
+          cell.innerHTML = '<div class="sk">' + item.specs[j][0] + '</div><div class="sv">' + item.specs[j][1] + '</div>';
+          sg.appendChild(cell);
+        }
+        inner.appendChild(sg);
+      } else {
+        var ul = document.createElement('ul');
+        ul.className = 'acc-list';
+        for (var j = 0; j < item.list.length; j++) {
+          var li = document.createElement('li');
+          li.textContent = item.list[j];
+          ul.appendChild(li);
+        }
+        inner.appendChild(ul);
+      }
+      body.appendChild(inner);
+      wrap.appendChild(btn);
+      wrap.appendChild(body);
+      accEl.appendChild(wrap);
+    })(i, accData[i]);
+  }
+
+  // related
+  var relEl = document.getElementById('rel-grid');
+  relEl.innerHTML = '';
+  var keys = Object.keys(PRODS).filter(function(k){ return k !== id; }).slice(0, 3);
+  for (var i = 0; i < keys.length; i++) {
+    (function(k) {
+      var p = PRODS[k];
+      var card = document.createElement('div');
+      card.className = 'card';
+      card.style.aspectRatio = '3/4';
+      card.onclick = function(){ loadPdp(k); };
+      card.innerHTML = '<div class="bg" style="background-image:url(\'' + p.imgs[0] + '\')"></div><div class="grad"></div><div class="info"><div class="prod-lbl">' + p.label + '</div><div class="prod-name">' + p.name + '</div><div class="prod-sub">' + p.sub + '</div><div class="prod-price">Vanaf €' + p.sizes[0].p + '</div><div class="cta-hint">Bekijk product →</div></div>';
+      relEl.appendChild(card);
+    })(keys[i]);
+  }
+
+  show('pdp');
+
+  // sticky
+  if (stickyObs) stickyObs.disconnect();
+  setTimeout(function() {
+    var atcEl = document.getElementById('atc-btn');
+    var stickyEl = document.getElementById('sticky');
+    if (atcEl && 'IntersectionObserver' in window) {
+      stickyObs = new IntersectionObserver(function(entries) {
+        stickyEl.classList.toggle('on', !entries[0].isIntersecting);
+      }, {threshold: 0});
+      stickyObs.observe(atcEl);
+    }
+  }, 100);
+}
+
+function switchImg(idx) {
+  document.getElementById('pdp-img').src = curProd.imgs[idx];
+  var thumbs = document.querySelectorAll('.thumb');
+  for (var i = 0; i < thumbs.length; i++) thumbs[i].classList.toggle('on', i === idx);
+}
+
+function renderColors() {
+  var el = document.getElementById('swatches');
+  el.innerHTML = '';
+  document.getElementById('col-lbl').textContent = curProd.colors[curColor].n;
+  for (var i = 0; i < curProd.colors.length; i++) {
+    (function(idx) {
+      var sw = document.createElement('div');
+      sw.className = 'sw' + (idx === curColor ? ' on' : '');
+      sw.style.background = curProd.colors[idx].h;
+      sw.title = curProd.colors[idx].n;
+      var tip = document.createElement('div');
+      tip.className = 'sw-tip';
+      tip.textContent = curProd.colors[idx].n;
+      sw.appendChild(tip);
+      sw.onclick = function() {
+        curColor = idx;
+        document.getElementById('col-lbl').textContent = curProd.colors[idx].n;
+        var imgIdx = curProd.colors[idx].i;
+        if (imgIdx < curProd.imgs.length) switchImg(imgIdx);
+        var sws = document.querySelectorAll('.sw');
+        for (var j = 0; j < sws.length; j++) sws[j].classList.toggle('on', j === idx);
+        document.getElementById('sticky-sub').textContent = curProd.sizes[curSize].l + ' · ' + curProd.colors[idx].n;
+      };
+      el.appendChild(sw);
+    })(i);
+  }
+}
+
+function renderSizes() {
+  var el = document.getElementById('sizes');
+  el.innerHTML = '';
+  var defSize = Math.min(curSize, curProd.sizes.length - 1);
+  while (defSize > 0 && curProd.sizes[defSize].na) defSize--;
+  curSize = defSize;
+  document.getElementById('sz-lbl').textContent = curProd.sizes[curSize].l;
+  for (var i = 0; i < curProd.sizes.length; i++) {
+    (function(idx) {
+      var s = curProd.sizes[idx];
+      var btn = document.createElement('button');
+      btn.className = 'sz' + (s.na ? ' na' : '') + (idx === curSize && !s.na ? ' on' : '');
+      btn.textContent = s.l;
+      if (!s.na) {
+        btn.onclick = function() {
+          curSize = idx;
+          document.getElementById('sz-lbl').textContent = s.l;
+          var btns = document.querySelectorAll('.sz');
+          for (var j = 0; j < btns.length; j++) btns[j].classList.toggle('on', j === idx);
+          updatePrice();
+        };
+      }
+      el.appendChild(btn);
+    })(i);
+  }
+}
+
+function updatePrice() {
+  var p = curProd.sizes[curSize] ? curProd.sizes[curSize].p : curProd.sizes[0].p;
+  var pStr = p.toLocaleString('nl-NL');
+  document.getElementById('pdp-pr').innerHTML = '€' + pStr + '<small>incl. btw · gratis verzending</small>';
+  document.getElementById('sticky-pr').textContent = '€' + pStr;
+  document.getElementById('sticky-nm').textContent = curProd.name;
+  document.getElementById('sticky-sub').textContent = curProd.sizes[curSize].l + ' · ' + curProd.colors[curColor].n;
+}
+
+var cartItems = [];
+
+function addCart() {
+  var price = curProd.sizes[curSize] ? curProd.sizes[curSize].p : curProd.sizes[0].p;
+  var sizeLabel = curProd.sizes[curSize] ? curProd.sizes[curSize].l : curProd.sizes[0].l;
+  var colorName = curProd.colors[curColor] ? curProd.colors[curColor].n : '';
+  var img = curProd.imgs ? curProd.imgs[0] : '';
+  var key = curProd.name + '-' + sizeLabel + '-' + colorName;
+  var existing = cartItems.find(function(i){ return i.key === key; });
+  if (existing) {
+    existing.qty++;
+  } else {
+    cartItems.push({ key: key, name: curProd.name, sub: sizeLabel + (colorName ? ' · ' + colorName : ''), price: price, img: img, qty: 1 });
+  }
+  renderCart();
+  var btn = document.getElementById('atc-btn');
+  btn.textContent = '✓  Toegevoegd';
+  btn.classList.add('ok');
+  setTimeout(function() { btn.textContent = 'In winkelmand →'; btn.classList.remove('ok'); }, 2000);
+  setTimeout(openCart, 300);
+}
+
+function openCart() {
+  document.getElementById('cart-overlay').style.display = 'block';
+  document.getElementById('cart-drawer').style.transform = 'translateX(0)';
+}
+
+function closeCart() {
+  document.getElementById('cart-overlay').style.display = 'none';
+  document.getElementById('cart-drawer').style.transform = 'translateX(100%)';
+}
+
+function renderCart() {
+  var count = cartItems.reduce(function(s,i){ return s+i.qty; }, 0);
+  var total = cartItems.reduce(function(s,i){ return s+i.price*i.qty; }, 0);
+  document.getElementById('cart-count').textContent = count;
+  var el = document.getElementById('cart-items');
+  var footer = document.getElementById('cart-footer');
+  if (!cartItems.length) {
+    el.innerHTML = '<p style="font-size:13px;color:rgba(240,232,208,.3);text-align:center;margin-top:60px;letter-spacing:1px">Uw selectie is leeg</p>';
+    footer.style.display = 'none';
+    return;
+  }
+  footer.style.display = 'block';
+  document.getElementById('cart-total').textContent = '€' + total.toLocaleString('nl-NL');
+  el.innerHTML = cartItems.map(function(item) {
+    return '<div style="display:flex;gap:16px;padding:16px 0;border-bottom:1px solid rgba(180,160,120,.08)">'
+      + (item.img ? '<div style="width:72px;height:88px;flex-shrink:0;background:url('+item.img+'?w=200&q=70) center/cover"></div>' : '')
+      + '<div style="flex:1">'
+      + '<div style="font-family:\'Cormorant Garamond\',serif;font-size:18px;color:#F0E8D0;margin-bottom:4px">'+item.name+'</div>'
+      + '<div style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(240,232,208,.4);margin-bottom:8px">'+item.sub+'</div>'
+      + '<div style="display:flex;justify-content:space-between;align-items:center">'
+      + '<span style="font-size:13px;color:rgba(184,156,92,.8)">€'+item.price.toLocaleString('nl-NL')+'</span>'
+      + '<div style="display:flex;align-items:center;gap:12px">'
+      + '<span onclick="changeQty(\''+item.key+'\',-1)" style="cursor:pointer;color:rgba(240,232,208,.4);font-size:16px;line-height:1">−</span>'
+      + '<span style="font-size:13px;color:rgba(240,232,208,.6)">'+item.qty+'</span>'
+      + '<span onclick="changeQty(\''+item.key+'\',1)" style="cursor:pointer;color:rgba(240,232,208,.4);font-size:16px;line-height:1">+</span>'
+      + '</div></div></div></div>';
+  }).join('');
+}
+
+function changeQty(key, delta) {
+  var item = cartItems.find(function(i){ return i.key === key; });
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) cartItems = cartItems.filter(function(i){ return i.key !== key; });
+  renderCart();
+}
+
+function setFilter(el, cat) {
+  var filters = document.querySelectorAll('.filter');
+  for (var i = 0; i < filters.length; i++) filters[i].classList.remove('on');
+  el.classList.add('on');
+  var heroEl = document.getElementById('coll-hero');
+  heroEl.style.display = cat === 'all' ? '' : 'none';
+  var cards = document.querySelectorAll('.prod-grid .card');
+  for (var i = 0; i < cards.length; i++) {
+    var show = cat === 'all' || cards[i].dataset.cat === cat;
+    cards[i].style.display = show ? '' : 'none';
+  }
+}
+</script>
+</body>
+</html>

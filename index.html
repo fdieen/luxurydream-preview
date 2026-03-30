@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxurydream — Design Previews</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0F0C08;font-family:'Jost',sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center}
+.wrap{padding:60px 40px;text-align:center}
+.eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(184,156,92,.7);margin-bottom:24px}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,6vw,64px);font-weight:300;color:#F0E8D0;line-height:1.05;margin-bottom:48px}
+h1 em{font-style:italic;color:rgba(184,156,92,.8)}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:720px;margin:0 auto}
+.card{display:block;text-decoration:none;border:1px solid rgba(180,160,120,.15);padding:40px 36px;transition:border-color .3s,background .3s;text-align:left}
+.card:hover{border-color:rgba(184,156,92,.5);background:rgba(184,156,92,.04)}
+.card-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(184,156,92,.6);margin-bottom:16px}
+.card-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#F0E8D0;margin-bottom:10px}
+.card-desc{font-size:13px;color:rgba(240,232,208,.35);line-height:1.7;font-weight:300}
+.card-arrow{display:block;margin-top:24px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(184,156,92,.6)}
+.card:hover .card-arrow{color:rgba(184,156,92,1)}
+@media(max-width:560px){.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">Luxurydream · Design Concepts</p>
+  <h1>Twee richtingen.<br><em>Één merk.</em></h1>
+  <div class="cards">
+    <a href="shop.html" class="card">
+      <div class="card-label">Versie A</div>
+      <div class="card-title">Warm & Klassiek</div>
+      <div class="card-desc">Crème achtergrond, gouden accenten. Klassiek luxe — denk Loro Piana, Frette.</div>
+      <span class="card-arrow">Bekijk concept →</span>
+    </a>
+    <a href="v4.html" class="card">
+      <div class="card-label">Versie B</div>
+      <div class="card-title">Donker & Dramatisch</div>
+      <div class="card-desc">Zwarte achtergrond, bronzen tonen. Modern luxe — denk Saint Laurent, The Row.</div>
+      <span class="card-arrow">Bekijk concept →</span>
+    </a>
+  </div>
+</div>
+</body>
+</html>
