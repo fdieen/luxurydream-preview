@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lookbook 2026 — Luxury Dream</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --gold:  #C9A84C;
+  --cream: #F8F4EE;
+  --brown: #2C1810;
+  --muted: #8A7560;
+  --line:  rgba(201,168,76,.15);
+}
+html { scroll-behavior:smooth; }
+body { font-family:'Montserrat',sans-serif; background:var(--cream); color:var(--brown); overflow-x:hidden; }
+
+/* ── NAV ── */
+nav {
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 54px; height:76px;
+  background:rgba(248,244,238,.95);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav-logo {
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:300;letter-spacing:8px;
+  color:var(--brown);text-decoration:none;text-transform:uppercase;
+}
+.nav-links { display:flex;gap:34px;list-style:none; }
+.nav-links a {
+  font-size:9px;font-weight:500;letter-spacing:3px;
+  color:var(--muted);text-transform:uppercase;text-decoration:none;
+  transition:color .3s;
+}
+.nav-links a:hover, .nav-links a.active { color:var(--gold); }
+.nav-back {
+  font-size:9px;letter-spacing:3px;color:var(--muted);
+  text-decoration:none;text-transform:uppercase;
+  display:flex;align-items:center;gap:8px;transition:color .3s;
+}
+.nav-back:hover { color:var(--gold); }
+
+/* ── HERO ── */
+.lb-hero {
+  height:70vh;min-height:500px;
+  position:relative;overflow:hidden;
+  margin-top:76px;
+  background-image:url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1920&q=85');
+  background-size:cover;background-position:center;
+}
+.lb-hero-overlay {
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom, rgba(44,24,16,.3) 0%, rgba(44,24,16,.6) 100%);
+}
+.lb-hero-content {
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;
+}
+.lb-eyebrow {
+  font-size:9px;letter-spacing:7px;color:rgba(201,168,76,.85);
+  text-transform:uppercase;margin-bottom:20px;
+  opacity:0;animation:fadeUp .6s ease .2s forwards;
+}
+.lb-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(48px,7vw,96px);font-weight:300;
+  color:#f8f4ee;line-height:1.05;letter-spacing:2px;
+  opacity:0;animation:fadeUp .6s ease .4s forwards;
+}
+.lb-title em { font-style:italic;color:#e8c870; }
+.lb-sub {
+  font-size:11px;letter-spacing:4px;color:rgba(248,244,238,.45);
+  text-transform:uppercase;margin-top:20px;
+  opacity:0;animation:fadeUp .6s ease .6s forwards;
+}
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);} }
+
+/* ── INTRO ── */
+.lb-intro {
+  max-width:600px;margin:80px auto;
+  text-align:center;padding:0 40px;
+}
+.lb-intro p {
+  font-size:13px;color:var(--muted);line-height:2;
+  letter-spacing:.5px;
+}
+.gold-line { width:40px;height:1px;background:var(--gold);margin:32px auto; }
+
+/* ── EDITORIAL GRID ── */
+.editorial-section {
+  padding:0 54px 100px;
+}
+.editorial-label {
+  font-size:8px;letter-spacing:5px;color:var(--gold);
+  text-transform:uppercase;margin-bottom:48px;
+  padding-bottom:16px;border-bottom:1px solid var(--line);
+}
+
+/* Layout 1: groot links, klein rechts */
+.lb-grid-1 {
+  display:grid;
+  grid-template-columns:1.4fr 1fr;
+  grid-template-rows:auto auto;
+  gap:12px;
+  margin-bottom:12px;
+}
+.lb-img {
+  position:relative;overflow:hidden;background:#ede5d8;
+}
+.lb-img img {
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .9s cubic-bezier(.16,1,.3,1);
+  display:block;
+}
+.lb-img:hover img { transform:scale(1.05); }
+.lb-img-tall { aspect-ratio:3/4; }
+.lb-img-wide { aspect-ratio:16/9; }
+.lb-img-sq   { aspect-ratio:1/1; }
+
+.lb-cap-block {
+  padding:20px 0 8px;
+}
+.lb-cap-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-weight:300;color:var(--brown);margin-bottom:4px;
+}
+.lb-cap-sub {
+  font-size:8px;letter-spacing:3px;color:var(--muted);text-transform:uppercase;
+}
+
+/* Layout 2: drie gelijke kolommen */
+.lb-grid-2 {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-bottom:12px;
+}
+
+/* Layout 3: klein links, groot rechts */
+.lb-grid-3 {
+  display:grid;
+  grid-template-columns:1fr 1.4fr;
+  gap:12px;
+  margin-bottom:12px;
+}
+
+/* Layout 4: breed full-width */
+.lb-grid-4 {
+  margin-bottom:12px;
+}
+.lb-img-cinematic { aspect-ratio:21/9; }
+
+/* Layout 5: twee gelijke */
+.lb-grid-5 {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-bottom:60px;
+}
+
+/* ── QUOTE ── */
+.lb-quote-block {
+  text-align:center;padding:80px 54px;
+  background:var(--brown);
+}
+.lb-quote {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(28px,4vw,52px);font-weight:300;font-style:italic;
+  color:rgba(248,244,238,.85);line-height:1.5;max-width:800px;margin:0 auto;
+}
+.lb-quote::before { content:'"'; }
+.lb-quote::after  { content:'"'; }
+.lb-quote-attr {
+  font-size:9px;letter-spacing:4px;color:rgba(201,168,76,.6);
+  text-transform:uppercase;margin-top:24px;
+}
+
+/* ── CTA ── */
+.lb-cta {
+  text-align:center;padding:80px 40px;
+}
+.lb-cta h3 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(32px,5vw,56px);font-weight:300;
+  color:var(--brown);margin-bottom:12px;
+}
+.lb-cta h3 em { font-style:italic;color:var(--gold); }
+.lb-cta p {
+  font-size:11px;letter-spacing:3px;color:var(--muted);
+  text-transform:uppercase;margin-bottom:36px;
+}
+.btn-gold {
+  background:var(--gold);color:var(--brown);
+  font-size:9px;letter-spacing:4px;font-weight:600;text-transform:uppercase;
+  padding:16px 46px;border:none;cursor:pointer;font-family:'Montserrat',sans-serif;
+  transition:all .3s;text-decoration:none;display:inline-block;
+}
+.btn-gold:hover { background:#d9b84e;transform:translateY(-2px); }
+
+/* ── FOOTER ── */
+footer {
+  background:var(--brown);
+  padding:48px 54px 24px;
+  border-top:1px solid rgba(201,168,76,.1);
+}
+.f-bottom {
+  display:flex;justify-content:space-between;
+  font-size:9px;color:rgba(248,244,238,.15);letter-spacing:1px;
+  padding-top:24px;border-top:1px solid rgba(201,168,76,.08);
+}
+
+/* ── REVEAL ── */
+.reveal {
+  opacity:0;transform:translateY(28px);
+  transition:opacity .9s ease,transform .9s ease;
+}
+.reveal.visible { opacity:1;transform:translateY(0); }
+.d1{transition-delay:.08s;} .d2{transition-delay:.18s;} .d3{transition-delay:.28s;}
+
+/* ── HAMBURGER ── */
+.hamburger {
+  display:none;background:none;border:none;cursor:pointer;
+  font-size:22px;color:var(--brown);padding:4px 8px;
+}
+.nav-mobile {
+  display:none;position:fixed;inset:0;z-index:300;
+  background:rgba(44,24,16,.97);
+  flex-direction:column;align-items:center;justify-content:center;gap:28px;
+}
+body.nav-open .nav-mobile { display:flex; }
+body.nav-open { overflow:hidden; }
+.nav-mobile a {
+  font-family:'Cormorant Garamond',serif;
+  font-size:34px;font-weight:300;color:rgba(248,244,238,.85);
+  text-decoration:none;letter-spacing:4px;transition:color .3s;
+}
+.nav-mobile a:hover { color:var(--gold); }
+.nav-mobile-close {
+  position:absolute;top:24px;right:28px;
+  font-size:26px;color:rgba(248,244,238,.45);
+  background:none;border:none;cursor:pointer;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width:768px) {
+  nav { padding:0 20px; }
+  .nav-links { display:none; }
+  .hamburger { display:block; }
+  .lb-hero { height:50vh; }
+  .editorial-section { padding:0 20px 60px; }
+  .lb-grid-1,.lb-grid-3 { grid-template-columns:1fr; }
+  .lb-grid-2 { grid-template-columns:repeat(2,1fr); }
+  .lb-grid-5 { grid-template-columns:1fr; }
+  .lb-img-cinematic { aspect-ratio:4/3; }
+  .lb-quote-block { padding:48px 24px; }
+  footer { padding:40px 20px 20px; }
+  .f-bottom { flex-direction:column;gap:10px;text-align:center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Luxury Dream</a>
+  <ul class="nav-links">
+    <li><a href="shop.html">Collecties</a></li>
+    <li><a href="#">Materialen</a></li>
+    <li><a href="lookbook.html" class="active">Lookbook</a></li>
+    <li><a href="#">Over ons</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleNav()">☰</button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="nav-mobile" id="mobileNav">
+  <button class="nav-mobile-close" onclick="toggleNav()">✕</button>
+  <a href="index.html" onclick="toggleNav()">Home</a>
+  <a href="shop.html" onclick="toggleNav()">Collecties</a>
+  <a href="#" onclick="toggleNav()">Materialen</a>
+  <a href="lookbook.html" onclick="toggleNav()">Lookbook</a>
+  <a href="#" onclick="toggleNav()">Over ons</a>
+</div>
+
+<!-- HERO -->
+<section class="lb-hero">
+  <div class="lb-hero-overlay"></div>
+  <div class="lb-hero-content">
+    <span class="lb-eyebrow">Editorials & Inspiratie</span>
+    <h1 class="lb-title">Lookbook <em>2026</em></h1>
+    <p class="lb-sub">Handgemaakt · Portugal · Egyptisch katoen</p>
+  </div>
+</section>
+
+<!-- INTRO -->
+<div class="lb-intro reveal">
+  <p>Elk stuk beddengoed vertelt een verhaal. Van het eerste licht van de ochtend tot de stille rust van de nacht — Luxury Dream begeleidt elk moment met kwaliteit die je voelt.</p>
+  <div class="gold-line"></div>
+</div>
+
+<!-- EDITORIAL 01 -->
+<section class="editorial-section">
+  <p class="lb-editorial-label reveal" style="font-size:8px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;margin-bottom:48px;padding-bottom:16px;border-bottom:1px solid var(--line);">Editorial 01 — Ochtendlicht</p>
+
+  <!-- Grid 1: groot + klein -->
+  <div class="lb-grid-1 reveal">
+    <div class="lb-img lb-img-tall">
+      <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=900&q=85" alt="Ochtendlicht — Nocturne collectie">
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div class="lb-img lb-img-sq">
+        <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=85" alt="Detail beddengoed">
+      </div>
+      <div class="lb-img lb-img-sq">
+        <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=600&q=85" alt="Textuur detail">
+      </div>
+    </div>
+  </div>
+  <div class="lb-cap-block reveal">
+    <p class="lb-cap-title">Nocturne — Diepblauw & Ivoor</p>
+    <p class="lb-cap-sub">600 TC · Langvezelig Egyptisch katoen · Handgemaakt in Portugal</p>
+  </div>
+
+  <!-- Grid 2: drie kolommen -->
+  <div class="lb-grid-2 reveal" style="margin-top:48px;">
+    <div class="lb-img lb-img-sq">
+      <img src="https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=600&q=85" alt="Slaapkamer detail">
+    </div>
+    <div class="lb-img lb-img-sq">
+      <img src="https://images.unsplash.com/photo-1571508601891-ca5e7a713859?auto=format&fit=crop&w=600&q=85" alt="Beddengoed close-up">
+    </div>
+    <div class="lb-img lb-img-sq">
+      <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=600&q=85" alt="Slaapkamer sfeer">
+    </div>
+  </div>
+
+</section>
+
+<!-- QUOTE -->
+<div class="lb-quote-block reveal">
+  <p class="lb-quote">Luxe is niet wat je ziet, maar wat je voelt wanneer je 's ochtends wakker wordt.</p>
+  <p class="lb-quote-attr">Luxury Dream · Atelier Porto</p>
+</div>
+
+<!-- EDITORIAL 02 -->
+<section class="editorial-section" style="padding-top:80px;">
+  <p class="lb-editorial-label reveal" style="font-size:8px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;margin-bottom:48px;padding-bottom:16px;border-bottom:1px solid var(--line);">Editorial 02 — Stille Luxe</p>
+
+  <!-- Cinematic full width -->
+  <div class="lb-grid-4 reveal">
+    <div class="lb-img lb-img-cinematic">
+      <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=1920&q=85" alt="Luxury Dream — Ivory collectie">
+    </div>
+  </div>
+  <div class="lb-cap-block reveal">
+    <p class="lb-cap-title">Ivory & Cream — Stille verfijning</p>
+    <p class="lb-cap-sub">Katoensatijn · 400 TC · Beschikbaar in 6 maten</p>
+  </div>
+
+  <!-- Grid 3: klein + groot -->
+  <div class="lb-grid-3 reveal" style="margin-top:48px;">
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div class="lb-img lb-img-sq">
+        <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=600&q=85" alt="Detail">
+      </div>
+      <div class="lb-img lb-img-sq">
+        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=600&q=85" alt="Sfeer">
+      </div>
+    </div>
+    <div class="lb-img lb-img-tall">
+      <img src="https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=900&q=85" alt="Ivory collectie">
+    </div>
+  </div>
+
+</section>
+
+<!-- EDITORIAL 03 -->
+<section class="editorial-section" style="padding-top:0;">
+  <p class="lb-editorial-label reveal" style="font-size:8px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;margin-bottom:48px;padding-bottom:16px;border-bottom:1px solid var(--line);">Editorial 03 — Forest Linen</p>
+
+  <!-- Grid 5: twee gelijke -->
+  <div class="lb-grid-5 reveal">
+    <div class="lb-img" style="aspect-ratio:4/5;">
+      <img src="https://images.unsplash.com/photo-1571508601891-ca5e7a713859?auto=format&fit=crop&w=800&q=85" alt="Forest Linen">
+    </div>
+    <div class="lb-img" style="aspect-ratio:4/5;">
+      <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=85" alt="Forest Linen detail">
+    </div>
+  </div>
+  <div class="lb-cap-block reveal">
+    <p class="lb-cap-title">Forest Linen — Natuur & Rust</p>
+    <p class="lb-cap-sub">Gewassen linnen · Biologisch · Verkrijgbaar in 4 kleuren</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="lb-cta reveal">
+  <h3>Klaar voor de <em>beste nachtrust</em><br>van je leven?</h3>
+  <p>Ontdek de volledige collectie</p>
+  <a href="shop.html" class="btn-gold">Bekijk collectie</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-bottom">
+    <span>© 2026 Luxury Dream. Alle rechten voorbehouden.</span>
+    <span>Handgemaakt in Portugal</span>
+  </div>
+</footer>
+
+<script>
+function toggleNav() {
+  document.body.classList.toggle('nav-open');
+}
+
+// Reveal on scroll
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.08 });
+reveals.forEach(r => observer.observe(r));
+</script>
+</body>
+</html>
