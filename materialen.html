@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Materialen — Luxury Dream</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --gold:  #C9A84C;
+  --cream: #F8F4EE;
+  --brown: #2C1810;
+  --muted: #8A7560;
+  --line:  rgba(201,168,76,.15);
+}
+html { scroll-behavior:smooth; }
+body { font-family:'Montserrat',sans-serif; background:var(--cream); color:var(--brown); overflow-x:hidden; }
+
+nav {
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 54px; height:76px;
+  background:rgba(248,244,238,.95);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav-logo { font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;letter-spacing:7px;color:var(--brown);text-decoration:none;text-transform:uppercase; }
+.nav-links { display:flex;gap:32px;list-style:none; }
+.nav-links a { font-size:9px;font-weight:500;letter-spacing:3px;color:var(--muted);text-transform:uppercase;text-decoration:none;transition:color .3s; }
+.nav-links a:hover,.nav-links a.active { color:var(--brown); }
+.nav-links a.active { border-bottom:1px solid var(--gold);padding-bottom:2px; }
+
+/* HERO */
+.hero {
+  height:60vh;min-height:400px;position:relative;overflow:hidden;
+  margin-top:76px;
+}
+.hero-bg {
+  position:absolute;inset:0;
+  background:url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1800&q=85&auto=format') center/cover no-repeat;
+  filter:brightness(.52) saturate(.85);
+}
+.hero-overlay { position:absolute;inset:0;background:linear-gradient(to top,var(--brown) 0%,rgba(44,24,16,.3) 60%,transparent 100%); }
+.hero-c { position:absolute;bottom:60px;left:80px;right:80px; }
+.eyebrow { font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px; }
+.hero-c h1 { font-family:'Cormorant Garamond',serif;font-size:clamp(40px,7vw,84px);font-weight:300;color:var(--cream);line-height:1; }
+.hero-c h1 em { font-style:italic; }
+
+/* INTRO */
+.intro { padding:80px 80px 60px;max-width:860px; }
+.intro p { font-size:15px;color:var(--muted);line-height:1.95;font-weight:300;margin-bottom:20px; }
+.intro p strong { color:var(--brown);font-weight:500; }
+
+/* MATERIALEN GRID */
+.mat-section { padding:0 80px 100px; }
+.mat-grid { display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px; }
+.mat-block {
+  position:relative;overflow:hidden;
+}
+.mat-block-full { grid-column:1/-1; }
+.mat-img {
+  width:100%;display:block;
+  transition:transform .8s cubic-bezier(.16,1,.3,1),filter .5s;
+  filter:brightness(.72) saturate(.85);
+}
+.mat-block:hover .mat-img { transform:scale(1.04);filter:brightness(.62) saturate(.9); }
+.mat-overlay {
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(44,24,16,.88) 0%,rgba(44,24,16,.1) 55%,transparent 100%);
+}
+.mat-c { position:absolute;bottom:0;left:0;right:0;padding:44px 48px; }
+.mat-nr { font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:rgba(201,168,76,.35);line-height:1;margin-bottom:8px; }
+.mat-name { font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.5vw,40px);font-weight:300;color:var(--cream);margin-bottom:8px; }
+.mat-name em { font-style:italic; }
+.mat-origin { font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:block; }
+.mat-desc { font-size:13px;color:rgba(248,244,238,.6);line-height:1.8;font-weight:300;max-width:500px; }
+
+/* EIGENSCHAPPEN */
+.props-section { background:var(--brown);padding:80px; }
+.props-section .eyebrow { margin-bottom:12px; }
+.props-title { font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,48px);font-weight:300;color:var(--cream);line-height:1.1;margin-bottom:60px; }
+.props-title em { font-style:italic; }
+.props-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:40px; }
+.prop { border-top:1px solid rgba(201,168,76,.2);padding-top:28px; }
+.prop-icon { font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:rgba(201,168,76,.5);margin-bottom:16px; }
+.prop-name { font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--cream);margin-bottom:10px; }
+.prop-desc { font-size:12px;color:rgba(248,244,238,.45);line-height:1.85;font-weight:300; }
+
+/* ZORG */
+.care-section { padding:80px; }
+.care-title { font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,44px);font-weight:300;color:var(--brown);line-height:1.1;margin-bottom:48px; }
+.care-title em { font-style:italic; }
+.care-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:40px; }
+.care-item { border-left:1px solid var(--line);padding-left:28px; }
+.care-item h4 { font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--brown);margin-bottom:10px; }
+.care-item p { font-size:12px;color:var(--muted);line-height:1.85;font-weight:300; }
+
+/* CTA */
+.cta-band { background:var(--brown);padding:80px;text-align:center; }
+.cta-band p { font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3.5vw,40px);font-weight:300;font-style:italic;color:var(--cream);margin-bottom:36px;line-height:1.3; }
+.btn-gold { display:inline-block;padding:16px 48px;border:1px solid rgba(201,168,76,.5);font-size:9px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--cream);text-decoration:none;transition:background .3s,border-color .3s; }
+.btn-gold:hover { background:rgba(201,168,76,.12);border-color:var(--gold); }
+
+/* FOOTER */
+footer { padding:60px 80px 40px;border-top:1px solid var(--line); }
+.f-bottom { display:flex;justify-content:space-between;font-size:10px;color:var(--muted);letter-spacing:1px;padding-top:40px;border-top:1px solid var(--line); }
+
+@media(max-width:768px) {
+  nav { padding:0 24px; }
+  .hero-c,.intro,.mat-section,.props-section,.care-section,.cta-band,footer { padding-left:24px;padding-right:24px; }
+  .mat-grid { grid-template-columns:1fr; }
+  .props-grid { grid-template-columns:1fr 1fr; }
+  .care-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="home.html" class="nav-logo">Luxury Dream</a>
+  <ul class="nav-links">
+    <li><a href="shop.html">Collecties</a></li>
+    <li><a href="materialen.html" class="active">Materialen</a></li>
+    <li><a href="lookbook.html">Lookbook</a></li>
+    <li><a href="shop.html#over-ons">Over ons</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-c">
+    <p class="eyebrow">Kwaliteit van bij de bron</p>
+    <h1>De kunst van<br><em>het juiste materiaal.</em></h1>
+  </div>
+</div>
+
+<!-- INTRO -->
+<div class="intro">
+  <p>Beddengoed voelt pas goed als het materiaal klopt. Niet alleen bij aanraking, maar ook na tien wassen, na vijf jaar, na een generatie. Bij Luxurydream selecteren wij uitsluitend materialen die dat niveau halen.</p>
+  <p>Elk vezel heeft zijn eigen karakter. <strong>Linnen ademt en wordt zachter met de jaren.</strong> Egyptisch katoen heeft een glans die goedkoper katoen nooit evennaart. Katoensatijn voelt aan als een hotelkamer waar u nooit meer weg wil. Wij leggen u uit wat het verschil is — en waarom het ertoe doet.</p>
+</div>
+
+<!-- MATERIALEN -->
+<div class="mat-section">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px">
+
+    <div class="mat-block">
+      <img class="mat-img" src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=900&q=80&auto=format" alt="Linnen" style="aspect-ratio:4/5;object-fit:cover">
+      <div class="mat-overlay"></div>
+      <div class="mat-c">
+        <div class="mat-nr">01</div>
+        <div class="mat-origin">Europees vlas · Portugal</div>
+        <div class="mat-name">Gewassen <em>Linnen</em></div>
+        <p class="mat-desc">Linnen is het oudste textielvezels ter wereld — en het meest onderschatte. Gewonnen uit de vlasstengel, ademt het als geen ander materiaal. Het reguleert de temperatuur van nature, is hygroscopisch en wordt bij elke was zachter. Na vijf jaar voelt goed linnen beter dan het eerste moment.</p>
+      </div>
+    </div>
+
+    <div class="mat-block">
+      <img class="mat-img" src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=900&q=80&auto=format" alt="Egyptisch katoen" style="aspect-ratio:4/5;object-fit:cover">
+      <div class="mat-overlay"></div>
+      <div class="mat-c">
+        <div class="mat-nr">02</div>
+        <div class="mat-origin">Nijldelta · Egypte</div>
+        <div class="mat-name">Egyptisch <em>Katoen</em></div>
+        <p class="mat-desc">Egyptisch katoen staat bekend om zijn buitengewoon lange vezels — de zogenaamde extra-long staple. Die lengte is bepalend voor alles: de zachtheid, de glans, de duurzaamheid. Een draaddichtheid van 400 tot 600 TC geeft het de karakteristieke zwaarte die u voelt zodra u het laken aanraakt.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="display:grid;grid-template-columns:2fr 1fr;gap:2px">
+
+    <div class="mat-block">
+      <img class="mat-img" src="https://images.unsplash.com/photo-1600618528240-fb9fc964b853?w=1200&q=80&auto=format" alt="Katoensatijn" style="aspect-ratio:16/9;object-fit:cover">
+      <div class="mat-overlay"></div>
+      <div class="mat-c">
+        <div class="mat-nr">03</div>
+        <div class="mat-origin">Griekenland · Candia</div>
+        <div class="mat-name">Katoensatijn met <em>olijfolie</em></div>
+        <p class="mat-desc">Candia ontwikkelde als enige ter wereld een behandelingsmethode waarbij olijfolie-extract wordt ingewerkt in de vezel. Het resultaat: een zijdezacht gevoel dat niet verdwijnt na wassen, gecombineerd met de voordelen van katoen. Exclusief, onnavolgbaar en naar één merk te herleiden.</p>
+      </div>
+    </div>
+
+    <div class="mat-block">
+      <img class="mat-img" src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=600&q=80&auto=format" alt="Percal" style="aspect-ratio:1/1;object-fit:cover">
+      <div class="mat-overlay"></div>
+      <div class="mat-c">
+        <div class="mat-nr">04</div>
+        <div class="mat-origin">Fijn geweven · 200–300 TC</div>
+        <div class="mat-name">Percal <em>Katoen</em></div>
+        <p class="mat-desc">Percal is het dagelijkse luxe — fris, koel en strak. Ideaal voor wie liever een knapperiger gevoel heeft dan de zachtheid van satijn. Door de effen weeftechniek is percal duurzaam en gemakkelijk te onderhouden zonder in te leveren op comfort.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- EIGENSCHAPPEN -->
+<div class="props-section">
+  <p class="eyebrow" style="color:var(--gold)">Waarom het ertoe doet</p>
+  <h2 class="props-title">Meer dan <em>een gevoel.</em></h2>
+  <div class="props-grid">
+    <div class="prop">
+      <div class="prop-icon">◇</div>
+      <div class="prop-name">Temperatuurregulatie</div>
+      <p class="prop-desc">Natuurlijke vezels ademen mee met uw lichaam. Ze houden u koel in de zomer en warm in de winter — zonder synthetisch ingrijpen.</p>
+    </div>
+    <div class="prop">
+      <div class="prop-icon">◎</div>
+      <div class="prop-name">Duurzaamheid</div>
+      <p class="prop-desc">Hoogwaardig linnen en Egyptisch katoen gaan twintig jaar of langer mee. Goedkoop beddengoed vervaagt, versleet en belandt in de vuilnisbak. Het onze niet.</p>
+    </div>
+    <div class="prop">
+      <div class="prop-icon">▽</div>
+      <div class="prop-name">Hypoallergeen</div>
+      <p class="prop-desc">Linnen en hoogwaardig katoen bevatten van nature geen irriterende stoffen. Ideaal voor mensen met een gevoelige huid of allergieën.</p>
+    </div>
+    <div class="prop">
+      <div class="prop-icon">✦</div>
+      <div class="prop-name">Verantwoord geteeld</div>
+      <p class="prop-desc">Europees vlas groeit zonder irrigatie of pesticiden. Onze Egyptische katoen komt van gecertificeerde telers aan de Nijl. Transparant van veld tot slaapkamer.</p>
+    </div>
+  </div>
+</div>
+
+<!-- WASVERZORGING -->
+<div class="care-section">
+  <p class="eyebrow">Onderhoud</p>
+  <h2 class="care-title">Goed onderhoud is <em>de beste investering.</em></h2>
+  <div class="care-grid">
+    <div class="care-item">
+      <h4>Linnen wassen</h4>
+      <p>Was linnen op maximaal 60°C met een mild wasmiddel. Linnen mag in de droger op lage temperatuur, maar drogen aan de lucht verlengt de levensduur aanzienlijk. Strijken is niet nodig — het kreukeffect hoort erbij.</p>
+    </div>
+    <div class="care-item">
+      <h4>Katoen & satijn wassen</h4>
+      <p>Was katoen op 40–60°C. Gebruik geen wasverzachter — dit tast de vezels aan en reduceert de absorptie. Katoensatijn droogt u bij voorkeur op lage temperatuur of aan de lucht om de glans te behouden.</p>
+    </div>
+    <div class="care-item">
+      <h4>Bewaren</h4>
+      <p>Bewaar uw beddengoed in een droge, goed geventileerde ruimte. Vermijd plastic zakken — gebruik bij voorkeur een katoenen opbergzak of bewaar het gewassen en gevouwen in de linnenkast.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-band">
+  <p>"Het juiste materiaal verandert hoe u slaapt.<br>En daarmee, hoe u wakker wordt."</p>
+  <a href="shop.html" class="btn-gold">Ontdek de collectie →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-bottom">
+    <span>© 2026 Luxury Dream · KVK 12345678</span>
+    <span>Algemene voorwaarden · Privacy</span>
+  </div>
+</footer>
+
+</body>
+</html>
